@@ -5,21 +5,21 @@
 class CookDocs < Formula
   desc "A tool for automatically generating markdown documentation for cooklang recipes"
   homepage "https://nicholaswilde.io/cook-docs"
-  version "0.6.1"
+  version "0.7.0"
   license "Apache-2.0"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.6.1/cook-docs_0.6.1_Darwin_x86_64.tar.gz"
-      sha256 "724f4ad729a75d188bd715279b791001e016132461242d3927965fd9f4fd8537"
+    if Hardware::CPU.arm?
+      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.7.0/cook-docs_0.7.0_Darwin_arm64.tar.gz"
+      sha256 "bad2451e2cc77343cbda715cfe40398ba34c640f4005f40a299f9696074d722a"
 
       def install
         bin.install "cook-docs"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.6.1/cook-docs_0.6.1_Darwin_arm64.tar.gz"
-      sha256 "57d68b7aa053aa8415708be4d3b537acce298adfed50510d56ef1aac389db8eb"
+    if Hardware::CPU.intel?
+      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.7.0/cook-docs_0.7.0_Darwin_x86_64.tar.gz"
+      sha256 "424ccf66fc6b30dcd97727aaa9c235c5b6ddc62247849921a13657ac637c4e3c"
 
       def install
         bin.install "cook-docs"
@@ -28,25 +28,25 @@ class CookDocs < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.6.1/cook-docs_0.6.1_Linux_armv6.tar.gz"
-      sha256 "33c4b533eb11d564db5cc0654efd76dfff8bbd026f4c918ccab36eec80e8a8ad"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.7.0/cook-docs_0.7.0_Linux_arm64.tar.gz"
+      sha256 "fdd72ecaedfe9b48ec78a7ee65fce11def27060d4c91c2fe973b6f7018bef66f"
 
       def install
         bin.install "cook-docs"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.6.1/cook-docs_0.6.1_Linux_arm64.tar.gz"
-      sha256 "1f2a08136e402f6b7dec6b3a64854e2f7c1d1f47c4f9b71ff2bec5820f28e248"
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.7.0/cook-docs_0.7.0_Linux_armv6.tar.gz"
+      sha256 "e12c77bd4ff02df3640767b9088e8be80ca5b5a9b1d1cf62b57b9eaa11bad9df"
 
       def install
         bin.install "cook-docs"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.6.1/cook-docs_0.6.1_Linux_x86_64.tar.gz"
-      sha256 "ab567a099d904af0f4c1a6e697c118f0aa045ef06d6f29b6acbac3e69909268e"
+      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.7.0/cook-docs_0.7.0_Linux_x86_64.tar.gz"
+      sha256 "735468ee414a6b5acd1353f944a391741f8a04f165f68ded845c118c02f47dd6"
 
       def install
         bin.install "cook-docs"
