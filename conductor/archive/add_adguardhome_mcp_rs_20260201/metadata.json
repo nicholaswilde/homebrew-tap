@@ -1,0 +1,8 @@
+{
+  "track_id": "add_adguardhome_mcp_rs_20260201",
+  "type": "feature",
+  "status": "completed",
+  "created_at": "2026-02-01T00:00:00Z",
+  "updated_at": "2026-02-01T00:00:00Z",
+  "description": "Add adguardhome-mcp-rs formula"
+}
