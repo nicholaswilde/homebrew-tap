@@ -1,0 +1,17 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: audit
+      - task: test
+
+  audit:
+    desc: Audit all formulas in the tap
+    cmds:
+      - brew audit --tap nicholaswilde/homebrew-tap Formula/*.rb
+
+  test:
+    desc: Test all formulas in the tap
+    cmds:
+      - brew test Formula/*.rb
