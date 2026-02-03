@@ -39,7 +39,7 @@ jobs:
             5.  **Maintain Integrity**: Ensure the Ruby syntax remains perfectly valid. Mimic the existing indentation and quote style.
             6.  **Verify**: If possible, run `brew audit --strict <formula>` locally to ensure the updated formula is valid.
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit and Push Changes
         run: |
