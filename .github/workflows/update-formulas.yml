@@ -21,6 +21,8 @@ jobs:
       - name: Update Formulas using Gemini CLI
         uses: google-github-actions/run-gemini-cli@v0
         with:
+          google_api_key: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           instructions: |
             You are an automated Homebrew formula updater. Your goal is to keep formulas in the 'Formula/' directory up-to-date with their upstream GitHub releases.
 
@@ -38,7 +40,6 @@ jobs:
             5.  **Maintain Integrity**: Ensure the Ruby syntax remains perfectly valid. Mimic the existing indentation and quote style.
             6.  **Verify**: If possible, run `brew audit --strict <formula>` locally to ensure the updated formula is valid.
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Commit and Push Changes
