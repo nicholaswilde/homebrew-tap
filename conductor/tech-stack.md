@@ -6,7 +6,8 @@
 ## Development & Automation
 - **Ruby:** The language used for writing Homebrew formula definitions (`.rb` files).
 - **GoReleaser:** Used as the upstream release automation tool to generate formula updates and manage artifacts.
-- **GitHub Actions:** (Inferred) Likely used for CI/CD to automate formula updates and validation.
+- **GitHub Actions:** The primary CI/CD platform for automating formula auditing, testing, and updates.
+- **Gemini CLI:** Used within GitHub Actions to autonomously scan upstream repositories and update formula versions and checksums.
 
 ## Target Architecture & OS
 - **macOS:**
