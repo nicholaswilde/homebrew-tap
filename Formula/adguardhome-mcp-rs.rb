@@ -4,51 +4,51 @@
 class AdguardhomeMcpRs < Formula
   desc "🛡️ A Rust implementation of an AdGuard Home MCP (Model Context Protocol) server 🤖"
   homepage "https://github.com/nicholaswilde/adguardhome-mcp-rs"
-  version "0.1.6"
+  version "0.1.8"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.6/adguardhome-mcp-rs-0.1.6-aarch64-apple-darwin.tar.gz"
-      sha256 "ec77aff1b4e98c0e70d12f95267de3cc5d7b9f62be06945376b382a5a3227fd4"
+      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.8/adguardhome-mcp-rs-0.1.8-aarch64-apple-darwin.tar.gz"
+      sha256 "6f35617b30bee1828fa9c373eb3c4977f4305c22aee14dd4d8d6f2e79362ace9"
 
       def install
-        bin.install "adguardhome-mcp-rs-0.1.6-aarch64-apple-darwin/adguardhome-mcp-rs"
+        bin.install "adguardhome-mcp-rs-0.1.8-aarch64-apple-darwin/adguardhome-mcp-rs"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.6/adguardhome-mcp-rs-0.1.6-x86_64-apple-darwin.tar.gz"
-      sha256 "6798ec82a012b7cdfd1289c6d4232ca1a9ac54717b5789fe9082c3f99e004494"
+      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.8/adguardhome-mcp-rs-0.1.8-x86_64-apple-darwin.tar.gz"
+      sha256 "a8f22f8768909ad7348bec1dcef779a609eb96ba76ebc1a55f18bd3b543ed579"
 
       def install
-        bin.install "adguardhome-mcp-rs-0.1.6-x86_64-apple-darwin/adguardhome-mcp-rs"
+        bin.install "adguardhome-mcp-rs-0.1.8-x86_64-apple-darwin/adguardhome-mcp-rs"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.6/adguardhome-mcp-rs-0.1.6-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "57a586a68910ced05ea279a21f599a71c835341b2edd60eb67e0b8c92d5faf3e"
+      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.8/adguardhome-mcp-rs-0.1.8-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "3a4c09946696cc9bd73abf73348edf3923145f199ebed187dc6fd8f4fdc128ba"
 
       def install
-        bin.install "adguardhome-mcp-rs-0.1.6-aarch64-unknown-linux-musl/adguardhome-mcp-rs"
+        bin.install "adguardhome-mcp-rs-0.1.8-aarch64-unknown-linux-musl/adguardhome-mcp-rs"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.6/adguardhome-mcp-rs-0.1.6-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "b4f72888062e66e4ade0ea033d9af4eb2a1bae367840b5fa7f00b5384c97a5d4"
+      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.8/adguardhome-mcp-rs-0.1.8-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "1bb64b95bfd60728891f80240fd1617b73a5a744ee7b42affa4527a3e0e10da2"
 
       def install
-        bin.install "adguardhome-mcp-rs-0.1.6-x86_64-unknown-linux-musl/adguardhome-mcp-rs"
+        bin.install "adguardhome-mcp-rs-0.1.8-x86_64-unknown-linux-musl/adguardhome-mcp-rs"
       end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.6/adguardhome-mcp-rs-0.1.6-arm-unknown-linux-gnueabihf.tar.gz"
-      sha256 "15f17f2671ee26f8a111d8396a2108fd0a6f9b4bc18ba2b6eae5974dd15b0d0c"
+      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.8/adguardhome-mcp-rs-0.1.8-arm-unknown-linux-gnueabihf.tar.gz"
+      sha256 "d2e561d79e8c42dfffb451aee18b549a919e7abd4f3551218f864140d4193d90"
 
       def install
-        bin.install "adguardhome-mcp-rs-0.1.6-arm-unknown-linux-gnueabihf/adguardhome-mcp-rs"
+        bin.install "adguardhome-mcp-rs-0.1.8-arm-unknown-linux-gnueabihf/adguardhome-mcp-rs"
       end
     end
   end
