@@ -22,7 +22,7 @@ jobs:
         uses: google-github-actions/run-gemini-cli@v0
         with:
           gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
-          instructions: |
+          prompt: |-
             You are an automated Homebrew formula updater. Your goal is to keep formulas in the 'Formula/' directory up-to-date with their upstream GitHub releases.
 
             ${{ github.event.inputs.formula != '' && format('FOCUS: Only update the formula "{0}.rb".', github.event.inputs.formula) || 'SCOPE: Scan and update all formulas in the "Formula/" directory.' }}
