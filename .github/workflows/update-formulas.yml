@@ -1,3 +1,4 @@
+---
 name: Update Formulas
 on:
   schedule:
@@ -38,7 +39,7 @@ jobs:
             6.  **Verify**: If possible, run `brew audit --strict <formula>` locally to ensure the updated formula is valid.
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Commit and Push Changes
         run: |
