@@ -1,7 +1,7 @@
 # typed: false
 # frozen_string_literal: true
 
-class SideEye < Formula
+class SideEyeHost < Formula
   desc "USB Stat Monitor for Linux rig"
   homepage "https://github.com/nicholaswilde/side-eye"
   license "Apache-2.0"
@@ -33,10 +33,10 @@ class SideEye < Formula
   end
 
   def install
-    bin.install Dir["**/side-eye-host"].first => "side-eye"
+    bin.install Dir["**/side-eye-host"].first
   end
 
   test do
-    system "#{bin}/side-eye", "--version"
+    system "#{bin}/side-eye-host", "--version"
   end
 end
