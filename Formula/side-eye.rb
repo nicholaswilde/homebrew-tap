@@ -4,7 +4,6 @@
 class SideEye < Formula
   desc "USB Stat Monitor for Linux rig"
   homepage "https://github.com/nicholaswilde/side-eye"
-  version "0.1.4"
   license "Apache-2.0"
 
   on_macos do
@@ -34,16 +33,7 @@ class SideEye < Formula
   end
 
   def install
-    cpu = if Hardware::CPU.arm?
-      Hardware::CPU.is_64_bit? ? "aarch64" : "armv7"
-    else
-      "x86_64"
-    end
-    os = OS.mac? ? "apple-darwin" : "unknown-linux-musl"
-    os = "unknown-linux-musleabihf" if !Hardware::CPU.is_64_bit? && OS.linux? && Hardware::CPU.arm?
-
-    dir = "side-eye-host-#{version}-#{cpu}-#{os}"
-    bin.install "#{dir}/side-eye-host" => "side-eye"
+    bin.install Dir["**/side-eye-host"].first => "side-eye"
   end
 
   test do
