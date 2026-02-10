@@ -37,6 +37,6 @@ class SideEyeHost < Formula
   end
 
   test do
-    system "#{bin}/side-eye-host", "--version"
+    system "#{bin}/side-eye-host", "--help"
   end
 end

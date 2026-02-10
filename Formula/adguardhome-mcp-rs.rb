@@ -37,6 +37,6 @@ class AdguardhomeMcpRs < Formula
   end
 
   test do
-    system "#{bin}/adguardhome-mcp-rs", "--version"
+    system "#{bin}/adguardhome-mcp-rs", "--help"
   end
 end

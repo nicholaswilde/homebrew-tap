@@ -37,6 +37,6 @@ class ProxmoxMcpRs < Formula
   end
 
   test do
-    system "#{bin}/proxmox-mcp-rs", "--version"
+    system "#{bin}/proxmox-mcp-rs", "--help"
   end
 end

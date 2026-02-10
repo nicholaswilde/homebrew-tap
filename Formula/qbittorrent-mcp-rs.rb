@@ -37,6 +37,6 @@ class QbittorrentMcpRs < Formula
   end
 
   test do
-    system "#{bin}/qbittorrent-mcp-rs", "--version"
+    system "#{bin}/qbittorrent-mcp-rs", "--help"
   end
 end

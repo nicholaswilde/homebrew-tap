@@ -33,6 +33,6 @@ class RescueGroupsMcp < Formula
   end
 
   test do
-    system "#{bin}/rescue-groups-mcp", "--version"
+    system "#{bin}/rescue-groups-mcp", "--help"
   end
 end
