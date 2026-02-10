@@ -1,0 +1,48 @@
+name: Scheduled Formula Test
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Weekly at midnight on Sunday
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  test-install:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Install and Test Formulas
+        run: |
+          for formula_path in Formula/*.rb; do
+            # Get formula name from path (e.g., Formula/name.rb -> name)
+            formula=$(basename "$formula_path" .rb)
+            
+            echo "::group::Testing $formula"
+            
+            echo "Installing $formula..."
+            if ! brew install "$formula_path"; then
+              echo "Error: Failed to install $formula"
+              exit 1
+            fi
+            
+            echo "Testing $formula..."
+            if ! brew test "$formula"; then
+              echo "Error: Failed to test $formula"
+              # Uninstall before failing
+              brew uninstall "$formula"
+              exit 1
+            fi
+            
+            echo "Uninstalling $formula..."
+            brew uninstall "$formula"
+            
+            echo "::endgroup::"
+          done
