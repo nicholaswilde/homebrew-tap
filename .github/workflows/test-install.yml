@@ -21,8 +21,8 @@ jobs:
 
       - name: Install and Test Formulas
         run: |
-          # Tap the local directory so Homebrew recognizes it as a tap
-          brew tap nicholaswilde/tap .
+          # Tap the local directory with a unique name to avoid remote mismatch
+          brew tap test/tap .
           
           for formula_path in Formula/*.rb; do
             # Get formula name from path (e.g., Formula/name.rb -> name)
@@ -31,21 +31,21 @@ jobs:
             echo "::group::Testing $formula"
             
             echo "Installing $formula..."
-            if ! brew install "nicholaswilde/tap/$formula"; then
+            if ! brew install "test/tap/$formula"; then
               echo "Error: Failed to install $formula"
               exit 1
             fi
             
             echo "Testing $formula..."
-            if ! brew test "nicholaswilde/tap/$formula"; then
+            if ! brew test "test/tap/$formula"; then
               echo "Error: Failed to test $formula"
               # Uninstall before failing
-              brew uninstall "nicholaswilde/tap/$formula"
+              brew uninstall "test/tap/$formula"
               exit 1
             fi
             
             echo "Uninstalling $formula..."
-            brew uninstall "nicholaswilde/tap/$formula"
+            brew uninstall "test/tap/$formula"
             
             echo "::endgroup::"
           done
