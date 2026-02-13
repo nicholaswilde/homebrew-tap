@@ -9,7 +9,42 @@ tasks:
   audit:
     desc: Audit all formulas in the tap
     cmds:
-      - brew audit --tap nicholaswilde/homebrew-tap Formula/*.rb
+      - task: audit:adguardhome-mcp-rs
+      - task: audit:cook-docs
+      - task: audit:proxmox-mcp-rs
+      - task: audit:qbittorrent-mcp-rs
+      - task: audit:rescue-groups-mcp
+      - task: audit:side-eye-host
+
+  audit:adguardhome-mcp-rs:
+    desc: Audit adguardhome-mcp-rs formula
+    cmds:
+      - brew audit --tap nicholaswilde/homebrew-tap Formula/adguardhome-mcp-rs.rb
+
+  audit:cook-docs:
+    desc: Audit cook-docs formula
+    cmds:
+      - brew audit --tap nicholaswilde/homebrew-tap Formula/cook-docs.rb
+
+  audit:proxmox-mcp-rs:
+    desc: Audit proxmox-mcp-rs formula
+    cmds:
+      - brew audit --tap nicholaswilde/homebrew-tap Formula/proxmox-mcp-rs.rb
+
+  audit:qbittorrent-mcp-rs:
+    desc: Audit qbittorrent-mcp-rs formula
+    cmds:
+      - brew audit --tap nicholaswilde/homebrew-tap Formula/qbittorrent-mcp-rs.rb
+
+  audit:rescue-groups-mcp:
+    desc: Audit rescue-groups-mcp formula
+    cmds:
+      - brew audit --tap nicholaswilde/homebrew-tap Formula/rescue-groups-mcp.rb
+
+  audit:side-eye-host:
+    desc: Audit side-eye-host formula
+    cmds:
+      - brew audit --tap nicholaswilde/homebrew-tap Formula/side-eye-host.rb
 
   test:
     desc: Test all formulas in the tap
