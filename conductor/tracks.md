@@ -9,5 +9,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Create a gemini-cli command to add a new homebrew formula**
+- [x] **Track: Create a gemini-cli command to add a new homebrew formula**
 *Link: [./tracks/add_formula_20260213/](./tracks/add_formula_20260213/)*
