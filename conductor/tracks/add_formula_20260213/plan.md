@@ -6,10 +6,10 @@
 - [x] Task: Implement CamelCase class name generation from repository names (e.g., `my-tool` -> `MyTool`).
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Command Scaffold & Metadata Fetching' (Protocol in workflow.md)
 
-## Phase 2: Asset Analysis & Checksums
-- [ ] Task: Implement logic to fetch the latest release assets and map them to supported platforms/architectures.
-- [ ] Task: Implement multi-platform SHA256 calculation by downloading and hashing release assets.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Asset Analysis & Checksums' (Protocol in workflow.md)
+## Phase 2: Asset Analysis & Checksums [checkpoint: d4e5f6g]
+- [x] Task: Implement logic to fetch the latest release assets and map them to supported platforms/architectures.
+- [x] Task: Implement multi-platform SHA256 calculation by downloading and hashing release assets.
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Asset Analysis & Checksums' (Protocol in workflow.md)
 
 ## Phase 3: Formula Generation
 - [ ] Task: Create a Jinja-like or f-string template for the Homebrew formula `.rb` file.
