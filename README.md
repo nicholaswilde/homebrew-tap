@@ -50,7 +50,9 @@ task test
 
 ## :robot: Automation
 
-This repository is configured to automatically audit, test, and update formulas. It utilizes a custom Gemini command `update-formula` to autonomously scan upstream repositories for new releases and update formula versions and checksums.
+This repository is configured to automatically audit, test, and update formulas. It utilizes custom Gemini commands to streamline maintenance:
+- `add-formula`: Automates the creation of new formulas by fetching metadata and calculating checksums from GitHub.
+- `update-formula`: Autonomously scans upstream repositories for new releases and updates formula versions and checksums.
 
 ## :balance_scale: License
 
