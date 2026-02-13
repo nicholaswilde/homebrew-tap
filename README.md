@@ -2,13 +2,55 @@
 
 The homebrew tap for various tools.
 
+## 🚀 Usage
+
+First, tap the repository:
+
 ```bash
-brew install nicholaswilde/tap/<appname>
+brew tap nicholaswilde/homebrew-tap
+```
+
+Then, install a formula:
+
+```bash
+brew install <formula>
+```
+
+## 📦 Available Formulas
+
+- `adguardhome-mcp-rs`: 🛡️ A Rust implementation of an AdGuard Home MCP server 🤖
+- `cook-docs`: A tool for automatically generating markdown documentation for cooklang recipes.
+- `proxmox-mcp-rs`: 🦀 A rust implementation of a proxmox MCP server. 🤖
+- `qbittorrent-mcp-rs`: 🧲 A qBittorrent MCP server written in Rust 🤖
+- `rescue-groups-mcp`: 🐶 An MCP server to interface with Rescue Groups written in Rust 🤖
+- `side-eye-host`: USB Stat Monitor for Linux rig.
+
+## 🛠️ Development
+
+This project uses [Task](https://taskfile.dev/) for common development tasks.
+
+### Auditing Formulas
+
+Audit all formulas:
+```bash
+task audit
+```
+
+Audit a specific formula:
+```bash
+task audit:qbittorrent-mcp-rs
+```
+
+### Testing Formulas
+
+Test all formulas:
+```bash
+task test
 ```
 
 ## :robot: Automation
 
-This repository uses the [Gemini CLI GitHub Action](https://github.com/google-github-actions/run-gemini-cli) to automatically audit, test, and update formulas when new releases are available in their respective upstream repositories.
+This repository uses the [Gemini CLI GitHub Action](https://github.com/google-github-actions/run-gemini-cli) to automatically audit, test, and update formulas. It utilizes a custom Gemini command `update-formula` to autonomously scan upstream repositories for new releases and update formula versions and checksums.
 
 ## :balance_scale: License
 
