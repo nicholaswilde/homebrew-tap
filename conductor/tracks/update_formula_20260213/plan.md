@@ -20,7 +20,7 @@
 - [x] Task: Add error handling for network issues and invalid formulas.
 - [x] Task: Conductor - User Manual Verification 'Phase 3: File Modification Logic' (Protocol in workflow.md)
 
-## Phase 4: Integration & Polish
-- [ ] Task: Verify the full end-to-end loop: `gemini update-formula <partial_name>`.
-- [ ] Task: Ensure all tests pass and coverage meets the >80% requirement.
-- [ ] Task: Conductor - User Manual Verification 'Phase 4: Integration & Polish' (Protocol in workflow.md)
+## Phase 4: Integration & Polish [checkpoint: 5a8e3b2]
+- [x] Task: Verify the full end-to-end loop: `gemini update-formula <partial_name>`.
+- [x] Task: Ensure all tests pass and coverage meets the >80% requirement.
+- [x] Task: Conductor - User Manual Verification 'Phase 4: Integration & Polish' (Protocol in workflow.md)

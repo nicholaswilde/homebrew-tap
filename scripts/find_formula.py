@@ -12,8 +12,13 @@ def find_formula(query, formula_dir="Formula"):
     if query in formulas:
         return query, formulas
 
+    # Substring match fallback
+    for f in formulas:
+        if query in f:
+            return f, formulas
+
     # Best guess using difflib
-    matches = difflib.get_close_matches(query, formulas, n=1, cutoff=0.5)
+    matches = difflib.get_close_matches(query, formulas, n=1, cutoff=0.4)
     if matches:
         return matches[0], formulas
         

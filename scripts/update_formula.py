@@ -34,14 +34,23 @@ def calculate_sha256(url):
 def update_formula_content(content, new_version, new_sha256=None):
     # Update version
     old_version_match = re.search(r'version "([^"]+)"', content)
-    old_version = old_version_match.group(1) if old_version_match else "unknown"
-    
-    new_content = re.sub(r'version "([^"]+)"', f'version "{new_version}"', content)
+    if old_version_match:
+        old_version = old_version_match.group(1)
+        new_content = re.sub(r'version "([^"]+)"', f'version "{new_version}"', content)
+    else:
+        # Fallback: extract from URL
+        url_match = re.search(r'url\s+"https://github\.com/[^/]+/[^/]+/releases/download/v?([^/]+)/', content)
+        old_version = url_match.group(1) if url_match else "unknown"
+        # If no version field, we might want to add one or just rely on URL replacement in future
+        new_content = content
     
     if new_sha256:
         # Simplification: replace ALL sha256 for now. 
-        # The agent can refine this if needed.
         new_content = re.sub(r'sha256 "([^"]+)"', f'sha256 "{new_sha256}"', new_content)
+    
+    # Always update versions in URLs as well
+    new_content = re.sub(r'/download/v?[^/]+/', f'/download/v{new_version}/', new_content)
+    new_content = re.sub(r'-[0-9]+\.[0-9]+\.[0-9]+', f'-{new_version}', new_content)
     
     return new_content, old_version
 
