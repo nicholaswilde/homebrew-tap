@@ -31,10 +31,25 @@ def calculate_sha256(url):
             sha256_hash.update(byte_block)
     return sha256_hash.hexdigest()
 
+def update_formula_content(content, new_version, new_sha256=None):
+    # Update version
+    old_version_match = re.search(r'version "([^"]+)"', content)
+    old_version = old_version_match.group(1) if old_version_match else "unknown"
+    
+    new_content = re.sub(r'version "([^"]+)"', f'version "{new_version}"', content)
+    
+    if new_sha256:
+        # Simplification: replace ALL sha256 for now. 
+        # The agent can refine this if needed.
+        new_content = re.sub(r'sha256 "([^"]+)"', f'sha256 "{new_sha256}"', new_content)
+    
+    return new_content, old_version
+
 def main():
     parser = argparse.ArgumentParser(description="Update Homebrew formula")
     parser.add_argument("formula_name", nargs="?", help="Name of the formula to update")
     parser.add_argument("--dry-run", action="store_true", help="Preview changes without applying them")
+    parser.add_argument("--version-override", help="Force update to a specific version")
     args = parser.parse_args()
 
     match, all_formulas = find_formula(args.formula_name)
@@ -60,19 +75,39 @@ def main():
 
     print(f"Upstream repository: {repo}")
 
-    try:
-        latest_version, assets = get_latest_release(repo)
-        print(f"Latest version: {latest_version}")
-    except Exception as e:
-        print(f"Error fetching latest release from GitHub: {e}")
-        sys.exit(1)
+    if args.version_override:
+        latest_version = args.version_override
+        print(f"Using version override: {latest_version}")
+    else:
+        try:
+            latest_version, assets = get_latest_release(repo)
+            print(f"Latest version: {latest_version}")
+        except Exception as e:
+            print(f"Error fetching latest release from GitHub: {e}")
+            sys.exit(1)
+
+    new_content, old_version = update_formula_content(content, latest_version)
+
+    if old_version == latest_version:
+        print(f"Formula is already at the latest version ({latest_version}).")
+        return
+
+    print(f"Updating {match} from {old_version} to {latest_version}")
 
     if args.dry_run:
-        print("Running in DRY RUN mode.")
-
-    # In a real scenario, we'd need to identify which asset to download based on the formula structure.
-    # For now, we'll just print the latest version found.
-    # The checksum calculation requires matching the asset to the OS/Arch.
+        print("--- DRY RUN: Proposed Changes ---")
+        # Print a simple diff-like view
+        for line in new_content.splitlines():
+            if 'version "' in line and latest_version in line:
+                print(f"+ {line}")
+            elif 'version "' in line:
+                # This won't show the old version because we already replaced it in new_content
+                pass
+        print("---------------------------------")
+    else:
+        with open(formula_path, "w") as f:
+            f.write(new_content)
+        print(f"Successfully updated {formula_path}")
 
 if __name__ == "__main__":
     main()

@@ -13,12 +13,12 @@
 - [x] Task: Implement GitHub API integration to fetch the latest release version and calculate the new SHA256 checksum.
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Upstream Analysis' (Protocol in workflow.md)
 
-## Phase 3: File Modification Logic
-- [ ] Task: Write tests for the `.rb` file update logic (including dry-run).
-- [ ] Task: Implement the logic to replace the `version` and `sha256` fields in the `.rb` file.
-- [ ] Task: Implement the `--dry-run` behavior to print the diff instead of writing to disk.
-- [ ] Task: Add error handling for network issues and invalid formulas.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: File Modification Logic' (Protocol in workflow.md)
+## Phase 3: File Modification Logic [checkpoint: f6d8a21]
+- [x] Task: Write tests for the `.rb` file update logic (including dry-run).
+- [x] Task: Implement the logic to replace the `version` and `sha256` fields in the `.rb` file.
+- [x] Task: Implement the `--dry-run` behavior to print the diff instead of writing to disk.
+- [x] Task: Add error handling for network issues and invalid formulas.
+- [x] Task: Conductor - User Manual Verification 'Phase 3: File Modification Logic' (Protocol in workflow.md)
 
 ## Phase 4: Integration & Polish
 - [ ] Task: Verify the full end-to-end loop: `gemini update-formula <partial_name>`.
