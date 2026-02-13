@@ -1,6 +1,6 @@
 # Implementation Plan - update-formula
 
-## Phase 1: Command Scaffold & Discovery
+## Phase 1: Command Scaffold & Discovery [checkpoint: 4c14ab1]
 - [x] Task: Create the `.gemini/commands/update-formula.toml` file with basic metadata.
 - [x] Task: Implement the "best guess" formula discovery logic.
 - [x] Task: Implement a command-line interface that accepts a formula name and a `--dry-run` flag.
