@@ -6,7 +6,7 @@
 - [x] Task: Implement a command-line interface that accepts a formula name and a `--dry-run` flag.
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Command Scaffold & Discovery' (Protocol in workflow.md)
 
-## Phase 2: Upstream Analysis [checkpoint: 57d8a21]
+## Phase 2: Upstream Analysis [checkpoint: bebbc69]
 - [x] Task: Write tests for extracting GitHub URLs from `.rb` files.
 - [x] Task: Implement logic to extract the upstream repository URL from a formula's `.rb` file.
 - [x] Task: Write tests for fetching the latest version and checksum from GitHub.
