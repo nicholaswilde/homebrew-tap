@@ -31,7 +31,7 @@ def calculate_sha256(url):
             sha256_hash.update(byte_block)
     return sha256_hash.hexdigest()
 
-def update_formula_content(content, new_version, new_sha256=None):
+def update_formula_content(content, new_version, assets):
     # Update version
     old_version_match = re.search(r'version "([^"]+)"', content)
     if old_version_match:
@@ -41,16 +41,37 @@ def update_formula_content(content, new_version, new_sha256=None):
         # Fallback: extract from URL
         url_match = re.search(r'url\s+"https://github\.com/[^/]+/[^/]+/releases/download/v?([^/]+)/', content)
         old_version = url_match.group(1) if url_match else "unknown"
-        # If no version field, we might want to add one or just rely on URL replacement in future
         new_content = content
     
-    if new_sha256:
-        # Simplification: replace ALL sha256 for now. 
-        new_content = re.sub(r'sha256 "([^"]+)"', f'sha256 "{new_sha256}"', new_content)
-    
-    # Always update versions in URLs as well
+    # Update versions in URLs
     new_content = re.sub(r'/download/v?[^/]+/', f'/download/v{new_version}/', new_content)
     new_content = re.sub(r'-[0-9]+\.[0-9]+\.[0-9]+', f'-{new_version}', new_content)
+
+    # Update checksums
+    # We'll iterate through each url/sha256 pair in the file
+    def replace_hashes(match):
+        url_line = match.group(1)
+        old_hash = match.group(2)
+        
+        # Extract filename from URL
+        filename_match = re.search(r'/([^/]+\.tar\.gz)"', url_line)
+        if not filename_match:
+            return match.group(0)
+            
+        filename = filename_match.group(1)
+        # Find matching asset
+        asset_url = next((a['browser_download_url'] for a in assets if a['name'] == filename), None)
+        
+        if asset_url:
+            print(f"Calculating hash for {filename}...")
+            new_hash = calculate_sha256(asset_url)
+            return f'{url_line}\n      sha256 "{new_hash}"'
+        
+        return match.group(0)
+
+    # This regex finds a url line followed by a sha256 line
+    pattern = r'(url\s+"https://github\.com/[^"]+")\n\s+sha256\s+"([a-f0-9]+)"'
+    new_content = re.sub(pattern, replace_hashes, new_content)
     
     return new_content, old_version
 
@@ -88,20 +109,19 @@ def main():
         latest_version = args.version_override
         print(f"Using version override: {latest_version}")
     else:
-        try:
-            latest_version, assets = get_latest_release(repo)
-            print(f"Latest version: {latest_version}")
-        except Exception as e:
-            print(f"Error fetching latest release from GitHub: {e}")
-            sys.exit(1)
-
-    new_content, old_version = update_formula_content(content, latest_version)
-
-    if old_version == latest_version:
-        print(f"Formula is already at the latest version ({latest_version}).")
-        return
-
-    print(f"Updating {match} from {old_version} to {latest_version}")
+            try:
+                latest_version, assets = get_latest_release(repo)
+                print(f"Latest version: {latest_version}")
+            except Exception as e:
+                print(f"Error fetching latest release from GitHub: {e}")
+                sys.exit(1)
+        
+            new_content, old_version = update_formula_content(content, latest_version, assets)
+        
+            if old_version == latest_version and content == new_content:
+                print(f"Formula is already at the latest version ({latest_version}) and content is up to date.")
+                return
+            print(f"Updating {match} from {old_version} to {latest_version}")
 
     if args.dry_run:
         print("--- DRY RUN: Proposed Changes ---")
