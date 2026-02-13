@@ -6,3 +6,8 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 - [ ] **Track: Add GitHub Actions for Automated Formula Auditing and Testing**
   *Link: [./tracks/gha_automation_20260201/](./tracks/gha_automation_20260201/)*
+
+---
+
+- [ ] **Track: Create a gemini-cli command to add a new homebrew formula**
+*Link: [./tracks/add_formula_20260213/](./tracks/add_formula_20260213/)*

@@ -1,0 +1,8 @@
+{
+  "track_id": "add_formula_20260213",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-02-13T13:00:00Z",
+  "updated_at": "2026-02-13T13:00:00Z",
+  "description": "Create a gemini-cli command to add a new homebrew formula"
+}
