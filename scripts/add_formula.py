@@ -161,23 +161,25 @@ def update_taskfile(formula_name):
 
 def main():
     parser = argparse.ArgumentParser(description="Add a new Homebrew formula")
-    parser.add_argument("repo_name", help="Name of the GitHub repository")
+    parser.add_argument("formula_name", help="Name of the formula to create")
     parser.add_argument("owner", nargs="?", default="nicholaswilde", help="GitHub owner (default: nicholaswilde)")
+    parser.add_argument("--repo", help="GitHub repository name (defaults to formula_name)")
     parser.add_argument("--dry-run", action="store_true", help="Preview changes without applying them")
     args = parser.parse_args()
 
-    repo = f"{args.owner}/{args.repo_name}"
-    print(f"Adding formula for repository: {repo}")
+    repo_name = args.repo if args.repo else args.formula_name
+    repo = f"{args.owner}/{repo_name}"
+    print(f"Adding formula {args.formula_name} for repository: {repo}")
 
     try:
         details = get_repo_details(repo)
-        details['repo_name'] = args.repo_name
+        details['repo_name'] = repo_name
         print(f"Fetched details: {details}")
         
         version, assets = get_latest_release(repo)
         print(f"Latest version: {version}")
         
-        class_name = to_camel_case(args.repo_name)
+        class_name = to_camel_case(args.formula_name)
         print(f"Generated class name: {class_name}")
 
         mapped_assets = map_assets(assets)
@@ -189,7 +191,7 @@ def main():
             print(f"Checksum: {info['sha256']}")
 
         formula_content = generate_formula(class_name, details, version, mapped_assets)
-        formula_path = f"Formula/{args.repo_name}.rb"
+        formula_path = f"Formula/{args.formula_name}.rb"
 
         if args.dry_run:
             print(f"--- DRY RUN: Proposed Formula {formula_path} ---")
@@ -200,7 +202,7 @@ def main():
                 f.write(formula_content)
             print(f"Successfully created {formula_path}")
             
-            update_taskfile(args.repo_name)
+            update_taskfile(args.formula_name)
             print(f"Successfully updated Taskfile.yml")
 
     except Exception as e:
