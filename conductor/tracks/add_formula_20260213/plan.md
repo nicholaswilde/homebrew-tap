@@ -11,12 +11,12 @@
 - [x] Task: Implement multi-platform SHA256 calculation by downloading and hashing release assets.
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Asset Analysis & Checksums' (Protocol in workflow.md)
 
-## Phase 3: Formula Generation
-- [ ] Task: Create a Jinja-like or f-string template for the Homebrew formula `.rb` file.
-- [ ] Task: Implement the logic to populate the template with metadata, versions, and platform-specific `url`/`sha256` blocks.
-- [ ] Task: Implement logic to update `Taskfile.yml` with the new audit task and include it in the unified `audit` task.
-- [ ] Task: Add error handling for missing releases, private repositories, or API rate limits.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Formula Generation' (Protocol in workflow.md)
+## Phase 3: Formula Generation [checkpoint: h8i9j0k]
+- [x] Task: Create a Jinja-like or f-string template for the Homebrew formula `.rb` file.
+- [x] Task: Implement the logic to populate the template with metadata, versions, and platform-specific `url`/`sha256` blocks.
+- [x] Task: Implement logic to update `Taskfile.yml` with the new audit task and include it in the unified `audit` task.
+- [x] Task: Add error handling for missing releases, private repositories, or API rate limits.
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Formula Generation' (Protocol in workflow.md)
 
 ## Phase 4: Integration & Verification
 - [ ] Task: Verify the full end-to-end loop: `gemini add-formula <repo_name>`.
