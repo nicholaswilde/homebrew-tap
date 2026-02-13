@@ -50,7 +50,7 @@ task test
 
 ## :robot: Automation
 
-This repository uses the [Gemini CLI GitHub Action](https://github.com/google-github-actions/run-gemini-cli) to automatically audit, test, and update formulas. It utilizes a custom Gemini command `update-formula` to autonomously scan upstream repositories for new releases and update formula versions and checksums.
+This repository is configured to automatically audit, test, and update formulas. It utilizes a custom Gemini command `update-formula` to autonomously scan upstream repositories for new releases and update formula versions and checksums.
 
 ## :balance_scale: License
 
