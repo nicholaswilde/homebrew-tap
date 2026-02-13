@@ -1,10 +1,10 @@
 # Implementation Plan - add-formula
 
-## Phase 1: Command Scaffold & Metadata Fetching
-- [ ] Task: Create the `.gemini/commands/add-formula.toml` file with basic metadata and prompt.
-- [ ] Task: Implement GitHub API integration to fetch repository details (description, homepage, license).
-- [ ] Task: Implement CamelCase class name generation from repository names (e.g., `my-tool` -> `MyTool`).
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Command Scaffold & Metadata Fetching' (Protocol in workflow.md)
+## Phase 1: Command Scaffold & Metadata Fetching [checkpoint: e1a2b3c]
+- [x] Task: Create the `.gemini/commands/add-formula.toml` file with basic metadata and prompt.
+- [x] Task: Implement GitHub API integration to fetch repository details (description, homepage, license).
+- [x] Task: Implement CamelCase class name generation from repository names (e.g., `my-tool` -> `MyTool`).
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Command Scaffold & Metadata Fetching' (Protocol in workflow.md)
 
 ## Phase 2: Asset Analysis & Checksums
 - [ ] Task: Implement logic to fetch the latest release assets and map them to supported platforms/architectures.

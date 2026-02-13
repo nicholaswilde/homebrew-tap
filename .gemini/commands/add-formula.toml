@@ -1,0 +1,28 @@
+description = "Add a new Homebrew formula to this tap"
+prompt = """
+You are an expert Homebrew formula maintainer. Your goal is to add a new Homebrew formula to this tap by fetching details from a GitHub repository.
+
+## Input Context
+- **Repository Name**: !{echo $REPO_NAME}
+- **Owner**: !{echo $OWNER:-nicholaswilde}
+
+## Step 1: Metadata Discovery
+1. Fetch repository details (description, homepage, license) from the GitHub API.
+2. Fetch the latest release version and its assets.
+
+## Step 2: Asset Analysis & Checksums
+1. Identify assets for macOS (ARM64, x86_64) and Linux (ARM64, x86_64, ARMv6).
+2. Download these assets and calculate their SHA256 checksums.
+
+## Step 3: Formula Generation
+1. Generate a new formula `.rb` file in the `Formula/` directory.
+2. The class name should be a CamelCase version of the repository name.
+3. Populate the formula with the discovered metadata, version, and platform-specific URLs and checksums.
+
+## Step 4: Taskfile Integration
+1. Add an individual audit task for the new formula to `Taskfile.yml`.
+2. Update the unified `audit` task in `Taskfile.yml` to include the new formula's audit task.
+
+## Step 5: Final Report
+- Summarize the created formula and the updates made to `Taskfile.yml`.
+"""
