@@ -18,7 +18,7 @@
 - [x] Task: Add error handling for missing releases, private repositories, or API rate limits.
 - [x] Task: Conductor - User Manual Verification 'Phase 3: Formula Generation' (Protocol in workflow.md)
 
-## Phase 4: Integration & Verification [checkpoint: a1b2c3d]
+## Phase 4: Integration & Verification [checkpoint: f5c3122]
 - [x] Task: Verify the full end-to-end loop: `gemini add-formula <repo_name>`.
 - [x] Task: Ensure the generated formula passes `brew audit` and `brew test`.
 - [x] Task: Conductor - User Manual Verification 'Phase 4: Integration & Polish' (Protocol in workflow.md)
