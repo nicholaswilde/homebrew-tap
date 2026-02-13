@@ -1,0 +1,28 @@
+description = "Update a Homebrew formula to its latest version"
+prompt = """
+You are an expert Homebrew formula maintainer. Your goal is to update a specific Homebrew formula in this tap to its latest version.
+
+## Input Context
+- **Formula Name**: !{echo $FORMULA_NAME}
+- **Dry Run**: !{echo $DRY_RUN}
+
+## Step 1: Formula Discovery
+1. If `FORMULA_NAME` is provided, find the matching `.rb` file in the `Formula/` directory.
+2. If `FORMULA_NAME` is missing or ambiguous, search the `Formula/` directory for a "best guess" match based on the provided input.
+3. Read the content of the identified formula file.
+
+## Step 2: Upstream Analysis
+1. Extract the upstream repository URL (likely from the `homepage` or `url` field) from the `.rb` file.
+2. Use the GitHub API (if the URL is a GitHub repo) to find the latest release version or tag.
+3. Download the latest artifact and calculate its SHA256 checksum.
+
+## Step 3: Update Logic
+1. Compare the latest version with the current version in the `.rb` file.
+2. If an update is available:
+    - If `DRY_RUN` is "true", display the proposed changes (version and sha256).
+    - If `DRY_RUN` is "false", update the `version` and `sha256` fields in the `.rb` file.
+3. If no update is available, report that the formula is already up to date.
+
+## Step 4: Final Report
+- Summarize the actions taken or the updates found.
+"""

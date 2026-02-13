@@ -1,10 +1,10 @@
 # Implementation Plan - update-formula
 
 ## Phase 1: Command Scaffold & Discovery
-- [ ] Task: Create the `.gemini/commands/update-formula.toml` file with basic metadata.
-- [ ] Task: Implement the "best guess" formula discovery logic.
-- [ ] Task: Implement a command-line interface that accepts a formula name and a `--dry-run` flag.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Command Scaffold & Discovery' (Protocol in workflow.md)
+- [x] Task: Create the `.gemini/commands/update-formula.toml` file with basic metadata.
+- [x] Task: Implement the "best guess" formula discovery logic.
+- [x] Task: Implement a command-line interface that accepts a formula name and a `--dry-run` flag.
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Command Scaffold & Discovery' (Protocol in workflow.md)
 
 ## Phase 2: Upstream Analysis
 - [ ] Task: Write tests for extracting GitHub URLs from `.rb` files.
