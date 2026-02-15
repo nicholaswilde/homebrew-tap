@@ -8,27 +8,27 @@ class AdguardhomeMcpRs < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.9/adguardhome-mcp-rs-0.1.9-aarch64-apple-darwin.tar.gz"
-      sha256 "133906c5b859f39abc9eac288ce84f8af60f62d03177254d2d423a7d093acc4d"
+      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.11/adguardhome-mcp-rs-0.1.11-aarch64-apple-darwin.tar.gz"
+      sha256 "805481472e75c1866657186393cb573b75f9b1bcc2b960eb392b1397ef989cda"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.9/adguardhome-mcp-rs-0.1.9-x86_64-apple-darwin.tar.gz"
-      sha256 "6712e84eba64f9c72e808c86f13972907787b01426a831bef1b0a80dec085ffe"
+      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.11/adguardhome-mcp-rs-0.1.11-x86_64-apple-darwin.tar.gz"
+      sha256 "012331a1130cd7576d6d6f7a0d368444bdffde4b173ff9c57cfe0c3e9126cdb5"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.9/adguardhome-mcp-rs-0.1.9-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "71de9c1d696785b14a82017b1a848367a375ad0fb31b4c35e22d7ec9758924e5"
+      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.11/adguardhome-mcp-rs-0.1.11-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "cc2669c39d714f2984a7d729d38c4a143536fbc4fd7090b61778e6d220b0af30"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.9/adguardhome-mcp-rs-0.1.9-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "2ce52e0ae17d99f66b7450135ec151f887fb3ff589c394419c98fe58b4f8cbcd"
+      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.11/adguardhome-mcp-rs-0.1.11-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "4532c904fde65973c7cbf448876b07a875bd5acf87c10a88810749008667b990"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.9/adguardhome-mcp-rs-0.1.9-arm-unknown-linux-gnueabihf.tar.gz"
-      sha256 "c112d2b2e62fa137fba996e2324155dbc3e62ec0ca505afb78d8281f1078800f"
+      url "https://github.com/nicholaswilde/adguardhome-mcp-rs/releases/download/v0.1.11/adguardhome-mcp-rs-0.1.11-arm-unknown-linux-gnueabihf.tar.gz"
+      sha256 "a43ba45b26f3f25daf90467ca2090ae5acaece7413e9d18f72fbe550184b343f"
     end
   end
 
