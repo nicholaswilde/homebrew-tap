@@ -8,23 +8,27 @@ class RescueGroupsMcp < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/rescue-groups-mcp/releases/download/v0.3.1/rescue-groups-mcp-darwin-arm64.tar.gz"
-      sha256 "59e2203bb628dd0fbcd043c54fcbd65e881f700795dd6153dd9f153ec1676a98"
+      url "https://github.com/nicholaswilde/rescue-groups-mcp/releases/download/v0.4.0/rescue-groups-mcp-0.4.0-aarch64-apple-darwin.tar.gz"
+      sha256 "3e114a3ce0e32f90ba2d0e68f5c988ca0fa65d86175999c37695faa9b8b20723"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/rescue-groups-mcp/releases/download/v0.3.1/rescue-groups-mcp-darwin-amd64.tar.gz"
-      sha256 "37111f8200daf59ef7768309e1d7a280a328cc4aed6b4f6aafc8e0edf3dea0b1"
+      url "https://github.com/nicholaswilde/rescue-groups-mcp/releases/download/v0.4.0/rescue-groups-mcp-0.4.0-x86_64-apple-darwin.tar.gz"
+      sha256 "82cd59e3047893ffc1b2f600af6e47c3fd1480298e68e19d076d1842b3470a0f"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/rescue-groups-mcp/releases/download/v0.3.1/rescue-groups-mcp-linux-arm64.tar.gz"
-      sha256 "d28b8365f13649153e1fa47c98f4e9f2d847527e3bf266d631918f627bb29803"
+      url "https://github.com/nicholaswilde/rescue-groups-mcp/releases/download/v0.4.0/rescue-groups-mcp-0.4.0-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "9fb3ab27af64c11f2812357d788afc73f51722c896c39d0b922c6bb4918b033f"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/rescue-groups-mcp/releases/download/v0.3.1/rescue-groups-mcp-linux-amd64.tar.gz"
-      sha256 "b76d921021fc61b8bed949cdc175a90991457d2fcbf6da079c9bb6f05f11c4c2"
+      url "https://github.com/nicholaswilde/rescue-groups-mcp/releases/download/v0.4.0/rescue-groups-mcp-0.4.0-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "cb036eb5b24fada36128cd0689b849284cca426bd80f67ca5cd652765e517bbf"
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/nicholaswilde/rescue-groups-mcp/releases/download/v0.4.0/rescue-groups-mcp-0.4.0-arm-unknown-linux-gnueabihf.tar.gz"
+      sha256 "0bc49d92088af4b25091d4037ec484ede6b39658dbc6bfcf9b45a1da10104916"
     end
   end
 

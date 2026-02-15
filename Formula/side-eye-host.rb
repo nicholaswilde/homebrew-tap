@@ -8,27 +8,27 @@ class SideEyeHost < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/side-eye/releases/download/v0.1.4/side-eye-host-0.1.4-aarch64-apple-darwin.tar.gz"
-      sha256 "e2df14e08a2f8a4dcab1825e9bdc3ac734a30e95894e331018d4e49f129710cf"
+      url "https://github.com/nicholaswilde/side-eye/releases/download/v0.2.1/side-eye-host-0.2.1-aarch64-apple-darwin.tar.gz"
+      sha256 "c454d114fa301fc6171f510ac4cd7b6d2250e7fe44cc7e7caf8439c229d9502d"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/side-eye/releases/download/v0.1.4/side-eye-host-0.1.4-x86_64-apple-darwin.tar.gz"
-      sha256 "4604ee9014699b3932c9d81a7c58e88939e9c7da5eac3eb7539d4b29d0edf8d9"
+      url "https://github.com/nicholaswilde/side-eye/releases/download/v0.2.1/side-eye-host-0.2.1-x86_64-apple-darwin.tar.gz"
+      sha256 "8d9e9af4db537142ef95d54000f7773472762d9d6fbb710381ded0b22d49a5a2"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/side-eye/releases/download/v0.1.4/side-eye-host-0.1.4-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "558cb31108afdfff6127d91e684501f1fd8bb75f094fc9ccf314b712de3fb6ea"
+      url "https://github.com/nicholaswilde/side-eye/releases/download/v0.2.1/side-eye-host-0.2.1-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "d2faac8ad3eee6ae27f17fcc6b0d845d744540e335aecb816a6427f16e988d3b"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/side-eye/releases/download/v0.1.4/side-eye-host-0.1.4-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "76e2888f8dc7ff2205d832be9e58416d4d99534c018e5c814faf57e4ee018cdd"
+      url "https://github.com/nicholaswilde/side-eye/releases/download/v0.2.1/side-eye-host-0.2.1-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "7866aed4a5a1e6b6e99d62a391c78a127ce1d5e1673576a7e44a54ff0a1bdfd5"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/side-eye/releases/download/v0.1.4/side-eye-host-0.1.4-armv7-unknown-linux-musleabihf.tar.gz"
-      sha256 "021f276ee129a02b4cdb618249b5f0c69c47d5ad265e8f90b755db2d5d76d36c"
+      url "https://github.com/nicholaswilde/side-eye/releases/download/v0.2.1/side-eye-host-0.2.1-armv7-unknown-linux-musleabihf.tar.gz"
+      sha256 "86624acd186fc1d60832d7aeba265eb9d10236acecca36924ac0dae7b56fe135"
     end
   end
 

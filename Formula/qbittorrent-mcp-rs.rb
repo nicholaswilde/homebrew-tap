@@ -8,27 +8,27 @@ class QbittorrentMcpRs < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/qbittorrent-mcp-rs/releases/download/v0.3.3/qbittorrent-mcp-rs-0.3.3-aarch64-apple-darwin.tar.gz"
-      sha256 "80800d241eae67f69303c468879d6879438a104a2f92102e08c2b40cd4eb5351"
+      url "https://github.com/nicholaswilde/qbittorrent-mcp-rs/releases/download/v0.3.5/qbittorrent-mcp-rs-0.3.5-aarch64-apple-darwin.tar.gz"
+      sha256 "a2c9b7c7bc0c6f8fd215357920db86ca55bfd21c940f8ff5499f0c74e011c651"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/qbittorrent-mcp-rs/releases/download/v0.3.3/qbittorrent-mcp-rs-0.3.3-x86_64-apple-darwin.tar.gz"
-      sha256 "91bfaff3c5ef29f22b1b0ffd166e38e8a6cacd4476ec1c3f296a06a3c7b75df9"
+      url "https://github.com/nicholaswilde/qbittorrent-mcp-rs/releases/download/v0.3.5/qbittorrent-mcp-rs-0.3.5-x86_64-apple-darwin.tar.gz"
+      sha256 "720d72e1ce3e0453bd3f894c27f09156f761e6d0e5b74d98066b7cd66761b352"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/qbittorrent-mcp-rs/releases/download/v0.3.3/qbittorrent-mcp-rs-0.3.3-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "a9edd5cc3858014bf11c0d98aa8f1490436acc9ace61a9d428e7739122f85b5c"
+      url "https://github.com/nicholaswilde/qbittorrent-mcp-rs/releases/download/v0.3.5/qbittorrent-mcp-rs-0.3.5-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "6bd1bdf2dd87d1a1304e014d3692f9e0d76bc24a62ca1aeb9678402f659ef2b3"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/qbittorrent-mcp-rs/releases/download/v0.3.3/qbittorrent-mcp-rs-0.3.3-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "5cf24b231199371651e4d09643abeef6ee4bec1c85691fa8df8f478732ea4622"
+      url "https://github.com/nicholaswilde/qbittorrent-mcp-rs/releases/download/v0.3.5/qbittorrent-mcp-rs-0.3.5-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "9a1e7ea46dd0296e39929f7fbee6065e8a69416657bf902ca327135d1d8978d6"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/qbittorrent-mcp-rs/releases/download/v0.3.3/qbittorrent-mcp-rs-0.3.3-arm-unknown-linux-gnueabihf.tar.gz"
-      sha256 "75cf2db39596d482d5217dd8d71801167eed6d42f01e9a90579644361b081994"
+      url "https://github.com/nicholaswilde/qbittorrent-mcp-rs/releases/download/v0.3.5/qbittorrent-mcp-rs-0.3.5-arm-unknown-linux-gnueabihf.tar.gz"
+      sha256 "bacdef0c600e98630a8b192258e19d4eabc9df601e5c1d96757c9300c359c2e2"
     end
   end
 
