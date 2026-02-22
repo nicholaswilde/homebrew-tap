@@ -23,6 +23,10 @@ You are an expert Homebrew formula maintainer. Your goal is to add a new Homebre
 1. Add an individual audit task for the new formula to `Taskfile.yml`.
 2. Update the unified `audit` task in `Taskfile.yml` to include the new formula's audit task.
 
-## Step 5: Final Report
-- Summarize the created formula and the updates made to `Taskfile.yml`.
+## Step 5: README.md Integration
+1. Add the new formula to the `Available Formulas` list in `README.md` in alphabetical order.
+2. Ensure the entry includes a short description and emoji if applicable.
+
+## Step 6: Final Report
+- Summarize the created formula and the updates made to `Taskfile.yml` and `README.md`.
 """

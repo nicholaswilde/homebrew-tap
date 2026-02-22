@@ -10,6 +10,7 @@ tasks:
     desc: Audit all formulas in the tap
     cmds:
       - task: audit:adguardhome-mcp-rs
+      - task: audit:aria2-mcp-rs
       - task: audit:cook-docs
       - task: audit:proxmox-mcp-rs
       - task: audit:qbittorrent-mcp-rs
@@ -20,6 +21,11 @@ tasks:
     desc: Audit adguardhome-mcp-rs formula
     cmds:
       - brew audit --tap nicholaswilde/homebrew-tap Formula/adguardhome-mcp-rs.rb
+
+  audit:aria2-mcp-rs:
+    desc: Audit aria2-mcp-rs formula
+    cmds:
+      - brew audit --tap nicholaswilde/homebrew-tap Formula/aria2-mcp-rs.rb
 
   audit:cook-docs:
     desc: Audit cook-docs formula

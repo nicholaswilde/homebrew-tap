@@ -19,6 +19,7 @@ brew install <formula>
 ## 📦 Available Formulas
 
 - `adguardhome-mcp-rs`: 🛡️ A Rust implementation of an AdGuard Home MCP server 🤖
+- `aria2-mcp-rs`: 🦀 A rust implementation of an aria2 MCP server. 🤖
 - `cook-docs`: A tool for automatically generating markdown documentation for cooklang recipes.
 - `proxmox-mcp-rs`: 🦀 A rust implementation of a proxmox MCP server. 🤖
 - `qbittorrent-mcp-rs`: 🧲 A qBittorrent MCP server written in Rust 🤖
