@@ -8,27 +8,27 @@ class Aria2McpRs < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.8/aria2-mcp-rs-0.1.8-aarch64-apple-darwin.tar.gz"
-      sha256 "b765c036b78459686a4661842f8780139b6d484a78f9b9933cff3e88fcef40d1"
+      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.17/aria2-mcp-rs-0.1.17-aarch64-apple-darwin.tar.gz"
+      sha256 "313b380b937f9275f5ec6bc13dfd376eb33227b611d1843128cf6a29a0c526fb"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.8/aria2-mcp-rs-0.1.8-x86_64-apple-darwin.tar.gz"
-      sha256 "076bcba00869e7ae951c7a7c70811cda38dff0a63b83ea6a6d4757949cd9e73c"
+      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.17/aria2-mcp-rs-0.1.17-x86_64-apple-darwin.tar.gz"
+      sha256 "49fdc4ecff4559d23ff2b1922a54c5a4e19ff1bb42f253dd82e838d4a47bf5c7"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.8/aria2-mcp-rs-0.1.8-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "e10d334ddbb7093f6e605f8cedd8ff786beb050d08fa707e29b847b26b90ca8a"
+      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.17/aria2-mcp-rs-0.1.17-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "8b50c991cc528d1698c6ceec3678b224a185af89bab7168b56c12bfe463b0322"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.8/aria2-mcp-rs-0.1.8-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "ccc2192e74933f691dbfef207160a4951b6ca955a2ee4158acaad08044e37ccd"
+      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.17/aria2-mcp-rs-0.1.17-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "82916503ddc7eba4411af1744b3f2a4a0db74bfd8ad02f5761717ccc469d64bc"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.8/aria2-mcp-rs-0.1.8-arm-unknown-linux-gnueabihf.tar.gz"
-      sha256 "eb7bbe4b9d55efa0cef93553a3e3f718136d3ab61cbe97d7f4c17747f6cb1f79"
+      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.17/aria2-mcp-rs-0.1.17-arm-unknown-linux-gnueabihf.tar.gz"
+      sha256 "9f03594503da9ded97a679fc827aa21277037bbbeb9b42f3f031a46904338e91"
     end
   end
 
