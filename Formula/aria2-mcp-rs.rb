@@ -8,27 +8,27 @@ class Aria2McpRs < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.23/aria2-mcp-rs-0.1.23-aarch64-apple-darwin.tar.gz"
-      sha256 "a93fbb00d94b8e1ae21c092b6fc7814ed565d5af9297be7020849f1e48173fa2"
+      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.24/aria2-mcp-rs-0.1.24-aarch64-apple-darwin.tar.gz"
+      sha256 "0cb3622acb2c2926773eefdae7eaea35656497cd1c6b0944d3a2585e77d823bb"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.23/aria2-mcp-rs-0.1.23-x86_64-apple-darwin.tar.gz"
-      sha256 "9d39ddd4b8ba5af99554e51e3b3c768d26d0d1f1ed333da0875d1da0759fa4ed"
+      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.24/aria2-mcp-rs-0.1.24-x86_64-apple-darwin.tar.gz"
+      sha256 "10159adc4a292498e0f9e318e7e745a423eb5d79c67bbbc2339d6dca93a590d0"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.23/aria2-mcp-rs-0.1.23-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "5142b821b6cdfb618cd27c660bd025d35cc95e616c3b5ec189aac11465618881"
+      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.24/aria2-mcp-rs-0.1.24-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "75220fa34346cbd89a8d3df6b42e03df3c8c19e9146105ff6fed1763b5eb101c"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.23/aria2-mcp-rs-0.1.23-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "150c6ab9bf39b3b80966c38b062594e8ce7b41ad64a6d15b383a6379016b4951"
+      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.24/aria2-mcp-rs-0.1.24-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "bb6249b6eed3e0f489de9d2914571e005d075f8837180b47cdd2d40cde6419f7"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.23/aria2-mcp-rs-0.1.23-arm-unknown-linux-gnueabihf.tar.gz"
-      sha256 "01bf23f234930e2a0e6f6e5594a7e92bb22829e956a677ca08f88a5f514518ed"
+      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.24/aria2-mcp-rs-0.1.24-arm-unknown-linux-gnueabihf.tar.gz"
+      sha256 "bb258d86a4d22e63046b5dba272b29f00f19a2fd5a613317b5f353b22ce64744"
     end
   end
 
