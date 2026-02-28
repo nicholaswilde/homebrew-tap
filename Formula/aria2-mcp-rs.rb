@@ -2,33 +2,33 @@
 # frozen_string_literal: true
 
 class Aria2McpRs < Formula
-  desc "🦀 A rust implementation of an aria2 MCP server. 🤖"
+  desc "Rust implementation of an aria2 MCP server"
   homepage "https://github.com/nicholaswilde/aria2-mcp-rs"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.21/aria2-mcp-rs-0.1.21-aarch64-apple-darwin.tar.gz"
-      sha256 "374e04010a4f38d326dca0f743eef6b6bd4adc8a448899b31ae4e4ac6de55877"
+      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.23/aria2-mcp-rs-0.1.23-aarch64-apple-darwin.tar.gz"
+      sha256 "a93fbb00d94b8e1ae21c092b6fc7814ed565d5af9297be7020849f1e48173fa2"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.21/aria2-mcp-rs-0.1.21-x86_64-apple-darwin.tar.gz"
-      sha256 "18db971b2823261751b2ba6d680c04c49d340dd36bb9e236bf117f96698c8de4"
+      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.23/aria2-mcp-rs-0.1.23-x86_64-apple-darwin.tar.gz"
+      sha256 "9d39ddd4b8ba5af99554e51e3b3c768d26d0d1f1ed333da0875d1da0759fa4ed"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.21/aria2-mcp-rs-0.1.21-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "a31018dd00afccae7c5a6d73dfd204555604b049c382c26bce3c722838c70344"
+      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.23/aria2-mcp-rs-0.1.23-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "5142b821b6cdfb618cd27c660bd025d35cc95e616c3b5ec189aac11465618881"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.21/aria2-mcp-rs-0.1.21-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "e04c4755395cc12ec973a498bd2e174192d2448506fee0c0d51dd4a2adcb158c"
+      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.23/aria2-mcp-rs-0.1.23-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "150c6ab9bf39b3b80966c38b062594e8ce7b41ad64a6d15b383a6379016b4951"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.21/aria2-mcp-rs-0.1.21-arm-unknown-linux-gnueabihf.tar.gz"
-      sha256 "3e9130a85fe4509d575507239274c9df25e9ad4e07ae40a403623c14885897e9"
+      url "https://github.com/nicholaswilde/aria2-mcp-rs/releases/download/v0.1.23/aria2-mcp-rs-0.1.23-arm-unknown-linux-gnueabihf.tar.gz"
+      sha256 "01bf23f234930e2a0e6f6e5594a7e92bb22829e956a677ca08f88a5f514518ed"
     end
   end
 
