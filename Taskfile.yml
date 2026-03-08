@@ -14,6 +14,7 @@ tasks:
       - task: audit:cook-docs
       - task: audit:proxmox-mcp-rs
       - task: audit:qbittorrent-mcp-rs
+      - task: audit:recipes-mcp-rs
       - task: audit:rescue-groups-mcp
       - task: audit:side-eye-host
 
@@ -41,6 +42,11 @@ tasks:
     desc: Audit qbittorrent-mcp-rs formula
     cmds:
       - brew audit --tap nicholaswilde/homebrew-tap Formula/qbittorrent-mcp-rs.rb
+
+  audit:recipes-mcp-rs:
+    desc: Audit recipes-mcp-rs formula
+    cmds:
+      - brew audit --tap nicholaswilde/homebrew-tap Formula/recipes-mcp-rs.rb
 
   audit:rescue-groups-mcp:
     desc: Audit rescue-groups-mcp formula

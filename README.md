@@ -23,6 +23,7 @@ brew install <formula>
 - `cook-docs`: A tool for automatically generating markdown documentation for cooklang recipes.
 - `proxmox-mcp-rs`: 🦀 A rust implementation of a proxmox MCP server. 🤖
 - `qbittorrent-mcp-rs`: 🧲 A qBittorrent MCP server written in Rust 🤖
+- `recipes-mcp-rs`: 🍳 An MCP server that imports recipes 🤖
 - `rescue-groups-mcp`: 🐶 An MCP server to interface with Rescue Groups written in Rust 🤖
 - `side-eye-host`: USB Stat Monitor for Linux rig.
 
