@@ -17,6 +17,7 @@ tasks:
       - task: audit:recipes-mcp-rs
       - task: audit:rescue-groups-mcp
       - task: audit:side-eye-host
+      - task: audit:syncthing-mcp-rs
 
   audit:adguardhome-mcp-rs:
     desc: Audit adguardhome-mcp-rs formula
@@ -57,6 +58,11 @@ tasks:
     desc: Audit side-eye-host formula
     cmds:
       - brew audit --tap nicholaswilde/homebrew-tap Formula/side-eye-host.rb
+
+  audit:syncthing-mcp-rs:
+    desc: Audit syncthing-mcp-rs formula
+    cmds:
+      - brew audit --tap nicholaswilde/homebrew-tap Formula/syncthing-mcp-rs.rb
 
   test:
     desc: Test all formulas in the tap

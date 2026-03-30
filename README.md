@@ -26,6 +26,7 @@ brew install <formula>
 - `recipes-mcp-rs`: 🍳 An MCP server that imports recipes 🤖
 - `rescue-groups-mcp`: 🐶 An MCP server to interface with Rescue Groups written in Rust 🤖
 - `side-eye-host`: USB Stat Monitor for Linux rig.
+- `syncthing-mcp-rs`: 🔄 An MCP server written in Rust for controlling SyncThing 🤖
 
 ## 🛠️ Development
 
