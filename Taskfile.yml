@@ -11,6 +11,7 @@ tasks:
     cmds:
       - task: audit:adguardhome-mcp-rs
       - task: audit:aria2-mcp-rs
+      - task: audit:changedetection-mcp-rs
       - task: audit:cook-docs
       - task: audit:proxmox-mcp-rs
       - task: audit:qbittorrent-mcp-rs
@@ -28,6 +29,11 @@ tasks:
     desc: Audit aria2-mcp-rs formula
     cmds:
       - brew audit --tap nicholaswilde/homebrew-tap Formula/aria2-mcp-rs.rb
+
+  audit:changedetection-mcp-rs:
+    desc: Audit changedetection-mcp-rs formula
+    cmds:
+      - brew audit --tap nicholaswilde/homebrew-tap Formula/changedetection-mcp-rs.rb
 
   audit:cook-docs:
     desc: Audit cook-docs formula
