@@ -4,28 +4,28 @@
 class SyncthingMcpRs < Formula
   desc "🔄 An MCP server written in Rust for controlling SyncThing 🤖"
   homepage "https://github.com/nicholaswilde/syncthing-mcp-rs"
-  version "0.1.14"
+  version "0.1.19"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/syncthing-mcp-rs/releases/download/v0.1.14/syncthing-mcp-rs-0.1.14-aarch64-apple-darwin.tar.gz"
-      sha256 "e8e7c5ca5072a7268a054903b061eb7c1312fcfbb46a7d95c5d0c2a72569a23b"
+      url "https://github.com/nicholaswilde/syncthing-mcp-rs/releases/download/v0.1.19/syncthing-mcp-rs-0.1.19-aarch64-apple-darwin.tar.gz"
+      sha256 "467833e9df40b598ab71a6d53427c1203779f0355bb7ae7bf9b5c92394ef41ee"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/syncthing-mcp-rs/releases/download/v0.1.14/syncthing-mcp-rs-0.1.14-x86_64-apple-darwin.tar.gz"
-      sha256 "5e874669eda6a5d53d7db738081c263ac5ec8ebaae2447a5b7fa4f17a17e16bb"
+      url "https://github.com/nicholaswilde/syncthing-mcp-rs/releases/download/v0.1.19/syncthing-mcp-rs-0.1.19-x86_64-apple-darwin.tar.gz"
+      sha256 "dccf6fdb1e9ebd0ceabc5c17a9ca5a3ff3ed21f379dbfc4fa265889cfa231822"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/syncthing-mcp-rs/releases/download/v0.1.14/syncthing-mcp-rs-0.1.14-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "dfd90364a0c250dde9282848da6287feabc8f00cf8f13c70f54d71e5b9766911"
+      url "https://github.com/nicholaswilde/syncthing-mcp-rs/releases/download/v0.1.19/syncthing-mcp-rs-0.1.19-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "2ee9648bd9d5dfc67000d6dd0ea8e285ca1703ba69bd37a0f45c1696319c342b"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/syncthing-mcp-rs/releases/download/v0.1.14/syncthing-mcp-rs-0.1.14-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "6c977672809f555fdff097b725b1951c1e5400bf985fc98dc370685e2eef1c8e"
+      url "https://github.com/nicholaswilde/syncthing-mcp-rs/releases/download/v0.1.19/syncthing-mcp-rs-0.1.19-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "09abf7c3e57959c0103847d8f901595af9cd828f15d4fa6d12ca1db0c0bbb882"
     end
   end
 
