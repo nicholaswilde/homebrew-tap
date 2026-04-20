@@ -8,23 +8,23 @@ class GatusMcpRs < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/gatus-mcp-rs/releases/download/v0.1.0/gatus-mcp-rs-0.1.0-aarch64-apple-darwin.tar.gz"
-      sha256 "8e54d64e30618cc053c4f708cf3336a10fd7962ec3a0b922aa67c95e22f572db"
+      url "https://github.com/nicholaswilde/gatus-mcp-rs/releases/download/v0.1.2/gatus-mcp-rs-0.1.2-aarch64-apple-darwin.tar.gz"
+      sha256 "cc91166361dc57163b4cbdcd94659495a72d4d3394c89580fee573c78dcc7a19"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/gatus-mcp-rs/releases/download/v0.1.0/gatus-mcp-rs-0.1.0-x86_64-apple-darwin.tar.gz"
-      sha256 "e74c9955d903f133eabe7c37c28096c0b66d267351ed073d70c26018bde4ce75"
+      url "https://github.com/nicholaswilde/gatus-mcp-rs/releases/download/v0.1.2/gatus-mcp-rs-0.1.2-x86_64-apple-darwin.tar.gz"
+      sha256 "c48f04b1c04ac5d7b8bc79cd3291fdeddc702c311137e0d9949f90f76ddb5bf9"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/gatus-mcp-rs/releases/download/v0.1.0/gatus-mcp-rs-0.1.0-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "b6c996de560b5e430b8dc3dadce99b05d1911fbafced19990ef70ad75c4c62a0"
+      url "https://github.com/nicholaswilde/gatus-mcp-rs/releases/download/v0.1.2/gatus-mcp-rs-0.1.2-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "5fa926ae9bc034929c390cd5fc9bf760c4a21f0fd32c34ba4d50eb0e91d6f697"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/gatus-mcp-rs/releases/download/v0.1.0/gatus-mcp-rs-0.1.0-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "032bab48f631a623b8b147dcc1bd9ae177e406e5de7133c6bb0b77857236b903"
+      url "https://github.com/nicholaswilde/gatus-mcp-rs/releases/download/v0.1.2/gatus-mcp-rs-0.1.2-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "9e1c8b57551fd64236cd2dbdff9a283d55fec851e7dd3f826338f2d94d53804f"
     end
   end
 
