@@ -8,23 +8,23 @@ class ChangedetectionMcpRs < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/changedetection-mcp-rs/releases/download/v0.1.5/changedetection-mcp-rs-0.1.5-aarch64-apple-darwin.tar.gz"
-      sha256 "ccd0452214024a7ff0ceb9c5766785f24298077592a25b6dfc0f8c684cf185ad"
+      url "https://github.com/nicholaswilde/changedetection-mcp-rs/releases/download/v0.1.6/changedetection-mcp-rs-0.1.6-aarch64-apple-darwin.tar.gz"
+      sha256 "6e35062266ec2871dcc14a282cfbd4c0c97acf5a8b1e60621614c694efcb0648"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/changedetection-mcp-rs/releases/download/v0.1.5/changedetection-mcp-rs-0.1.5-x86_64-apple-darwin.tar.gz"
-      sha256 "cc7bf754c7c2c7d5d216b88b8037c2fe3de79badc8125e66f0c11b2a3b6ccc63"
+      url "https://github.com/nicholaswilde/changedetection-mcp-rs/releases/download/v0.1.6/changedetection-mcp-rs-0.1.6-x86_64-apple-darwin.tar.gz"
+      sha256 "d5b7bd53f6f4c62abb78bbf8f7efa0a7785d789cf8bb74ec17c29f70fce4506f"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/changedetection-mcp-rs/releases/download/v0.1.5/changedetection-mcp-rs-0.1.5-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "2f7ca3215694e8794239435c5946f2ef1cd433a97607ff98a69938ab78500fa1"
+      url "https://github.com/nicholaswilde/changedetection-mcp-rs/releases/download/v0.1.6/changedetection-mcp-rs-0.1.6-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "f933e42bb4427a0015b3d67c779cecce82d586564b56979a2925556cc6027f1a"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/changedetection-mcp-rs/releases/download/v0.1.5/changedetection-mcp-rs-0.1.5-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "5e374d60738c0be8b95e2e01ef4cd101e182ade286a91abdeb240da08cf3b174"
+      url "https://github.com/nicholaswilde/changedetection-mcp-rs/releases/download/v0.1.6/changedetection-mcp-rs-0.1.6-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "795ea168a1892403bf2ee73bf20399efb5de05a24853a5445c27598e98ed68f2"
     end
   end
 
@@ -33,6 +33,6 @@ class ChangedetectionMcpRs < Formula
   end
 
   test do
-    system "#{bin}/changedetection-mcp-rs", "--help"
+    system bin/"changedetection-mcp-rs", "--help"
   end
 end

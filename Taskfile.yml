@@ -20,6 +20,7 @@ tasks:
       - task: audit:rescue-groups-mcp
       - task: audit:side-eye-host
       - task: audit:syncthing-mcp-rs
+      - task: audit:sysmqttd
 
   audit:adguardhome-mcp-rs:
     desc: Audit adguardhome-mcp-rs formula
@@ -75,6 +76,11 @@ tasks:
     desc: Audit syncthing-mcp-rs formula
     cmds:
       - brew audit --tap nicholaswilde/homebrew-tap Formula/syncthing-mcp-rs.rb
+
+  audit:sysmqttd:
+    desc: Audit sysmqttd formula
+    cmds:
+      - brew audit --tap nicholaswilde/homebrew-tap Formula/sysmqttd.rb
 
   test:
     desc: Test all formulas in the tap
