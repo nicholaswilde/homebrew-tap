@@ -17,8 +17,13 @@ class Sysmqttd < Formula
       sha256 "92a7c8990e014d2832787bc8c466c41ab97a14858997adc4fb37b643e64bfc0d"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/sysmqttd/releases/download/v0.1.17/sysmqttd-0.1.17-arm-unknown-linux-gnueabihf.tar.gz"
-      sha256 "66d4b48fcbe8e2367d652d696b57aebb33897e30d9b9cda8cc28547f60347741"
+      if Utils.safe_popen_read("uname", "-m").include?("armv6")
+        url "https://github.com/nicholaswilde/sysmqttd/releases/download/v0.1.17/sysmqttd-0.1.17-arm-unknown-linux-gnueabihf.tar.gz"
+        sha256 "66d4b48fcbe8e2367d652d696b57aebb33897e30d9b9cda8cc28547f60347741"
+      else
+        url "https://github.com/nicholaswilde/sysmqttd/releases/download/v0.1.17/sysmqttd-0.1.17-armv7-unknown-linux-musleabihf.tar.gz"
+        sha256 "64b487495073620055608198581bc8d3c815bc76e3b4310c63801bf0b56414b4"
+      end
     end
   end
 
