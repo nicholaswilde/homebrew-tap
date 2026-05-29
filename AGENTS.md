@@ -1,6 +1,6 @@
-# Gemini CLI - Homebrew Tap Context
+# Agent CLI - Homebrew Tap Context
 
-This file provides instructions and context for the Gemini CLI when working on this repository.
+This file provides instructions and context for the Agent CLI when working on this repository.
 
 ## Project Structure
 - `Formula/`: Contains Homebrew formula Ruby files (.rb).
