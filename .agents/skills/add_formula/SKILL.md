@@ -12,13 +12,14 @@ This Antigravity skill automates the process of adding a new Homebrew formula to
 2. Fetch the latest release version and its assets.
 
 ### Step 2: Asset Analysis & Checksums
-1. Identify assets for macOS (ARM64, x86_64) and Linux (ARM64, x86_64, ARMv6).
+1. Identify assets for macOS (ARM64, x86_64) and Linux (ARM64, x86_64, ARMv6, ARMv7). Specifically check if separate Linux assets exist for both `armv6` and `armv7` architectures (e.g., `arm-unknown-linux-gnueabihf` for armv6 and `armv7-unknown-linux-musleabihf` for armv7).
 2. Download these assets and calculate their SHA256 checksums.
 
 ### Step 3: Formula Generation
 1. Generate a new formula `.rb` file in the `Formula/` directory.
 2. The class name should be a CamelCase version of the repository name.
 3. Populate the formula with the discovered metadata, version, and platform-specific URLs and checksums.
+4. If both `armv6` and `armv7` release assets exist, populate the 32-bit ARM Linux block (`Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?`) to conditionally check `Utils.safe_popen_read("uname", "-m").include?("armv6")` and set the appropriate URL and SHA256 hash for each architecture.
 
 ### Step 4: Taskfile Integration
 1. Add an individual audit task for the new formula to `Taskfile.yml`.
