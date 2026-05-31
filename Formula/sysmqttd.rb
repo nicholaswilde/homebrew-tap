@@ -4,25 +4,25 @@
 class Sysmqttd < Formula
   desc "System monitoring & GPIO actuation daemon in Rust with MQTT autodiscovery"
   homepage "https://github.com/nicholaswilde/sysmqttd"
-  version "0.1.18"
+  version "0.1.21"
   license "Apache-2.0"
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/sysmqttd/releases/download/v0.1.18/sysmqttd-0.1.18-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "d7498c668d2bd3ec4cde9c809863b6b4c4716eb7422b279c8ee9a124fd040898"
+      url "https://github.com/nicholaswilde/sysmqttd/releases/download/v0.1.21/sysmqttd-0.1.21-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "4e2c5d00a41070841d0f7cefb8e05b1e01f6781d28f577644d7712f79f401ccd"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/sysmqttd/releases/download/v0.1.18/sysmqttd-0.1.18-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "bd90ef239fb1f26945fbaf79473833d46b1f66a2a379c367a852aeb75329d4f2"
+      url "https://github.com/nicholaswilde/sysmqttd/releases/download/v0.1.21/sysmqttd-0.1.21-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "7fb2fc9c95c79b72348432c81ff5a764416d20c199021c9bd01c0731a77883d2"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
       if Utils.safe_popen_read("uname", "-m").include?("armv6")
-        url "https://github.com/nicholaswilde/sysmqttd/releases/download/v0.1.18/sysmqttd-0.1.18-arm-unknown-linux-gnueabihf.tar.gz"
-        sha256 "51f7832795f293c95d7481ca113bad346c0fbf16ac55ce8645bbf21d6fd1a572"
+        url "https://github.com/nicholaswilde/sysmqttd/releases/download/v0.1.21/sysmqttd-0.1.21-arm-unknown-linux-gnueabihf.tar.gz"
+        sha256 "5f9820805d182013cf180efeb85b619480a89b113fcf851205f6e42ac9c8f7d7"
       else
-        url "https://github.com/nicholaswilde/sysmqttd/releases/download/v0.1.18/sysmqttd-0.1.18-armv7-unknown-linux-musleabihf.tar.gz"
-        sha256 "2a68e5c2761ab2789348b0996ac54ecd25339e5519ca29152c569f57503fdeb0"
+        url "https://github.com/nicholaswilde/sysmqttd/releases/download/v0.1.21/sysmqttd-0.1.21-armv7-unknown-linux-musleabihf.tar.gz"
+        sha256 "41858942b7aedd35ae35e3d9d26ad2363c2e20afd9284ccc6c7a36a7a7bd0295"
       end
     end
   end
