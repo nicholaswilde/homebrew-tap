@@ -4,8 +4,11 @@
 class Sysmqttd < Formula
   desc "System monitoring & GPIO actuation daemon in Rust with MQTT autodiscovery"
   homepage "https://github.com/nicholaswilde/sysmqttd"
-  version "0.1.21"
+  url "https://github.com/nicholaswilde/sysmqttd/archive/refs/tags/v0.1.21.tar.gz"
+  sha256 "c4a1190f54e39f63755b3b5277c3281576fe277d47754233ade6e11e2ac06f7c"
   license "Apache-2.0"
+
+  depends_on :linux
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
@@ -32,6 +35,6 @@ class Sysmqttd < Formula
   end
 
   test do
-    system "#{bin}/sysmqttd", "--help"
+    system bin/"sysmqttd", "--help"
   end
 end
