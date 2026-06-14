@@ -6,6 +6,11 @@ tasks:
       - task: audit
       - task: test
 
+  bootstrap:
+    desc: Initialize the Python environment and install dependencies
+    cmds:
+      - uv sync
+
   audit:
     desc: Audit all formulas in the tap
     cmds:
