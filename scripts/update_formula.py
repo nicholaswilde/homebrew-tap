@@ -45,7 +45,7 @@ def update_formula_content(content, new_version, assets):
     
     # Update versions in URLs
     new_content = re.sub(r'/download/v?[^/]+/', f'/download/v{new_version}/', new_content)
-    new_content = re.sub(r'-[0-9]+\.[0-9]+\.[0-9]+', f'-{new_version}', new_content)
+    new_content = re.sub(r'([-_])[0-9]+\.[0-9]+\.[0-9]+', r'\g<1>' + new_version, new_content)
 
     # Update checksums
     # We'll iterate through each url/sha256 pair in the file
