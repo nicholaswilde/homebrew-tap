@@ -4,7 +4,7 @@ This file provides instructions and context for the Agent CLI when working on th
 
 ## Project Structure
 - `Formula/`: Contains Homebrew formula Ruby files (.rb).
-- `conductor/`: Contains project management and tracking documents.
+- `.agents/conductor/`: Contains project management and tracking documents.
 
 ## Guidelines for Formula Updates
 When updating formulas:

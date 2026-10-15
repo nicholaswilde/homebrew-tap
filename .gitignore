@@ -9,3 +9,8 @@ gha-creds-*.json
 __pycache__/
 *.pyc
 
+# Local tool cache and indexes
+.codegraph/
+.serena/
+.rtk/*
+!.rtk/filters.toml
