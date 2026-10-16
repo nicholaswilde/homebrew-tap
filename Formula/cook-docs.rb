@@ -5,7 +5,6 @@
 class CookDocs < Formula
   desc "A tool for automatically generating markdown documentation for cooklang recipes"
   homepage "https://nicholaswilde.io/cook-docs"
-  version "0.9.1"
   license "Apache-2.0"
 
   on_macos do

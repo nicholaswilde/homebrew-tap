@@ -6,6 +6,7 @@ import json
 import hashlib
 from urllib.request import urlopen, Request
 from find_formula import find_formula
+from github_utils import get_github_token, create_github_request
 
 def extract_github_repo(content):
     # Regex to find GitHub URLs in the 'url' field
@@ -14,11 +15,9 @@ def extract_github_repo(content):
         return f"{match.group(1)}/{match.group(2)}"
     return None
 
-def get_latest_release(repo):
+def get_latest_release(repo, token=None):
     url = f"https://api.github.com/repos/{repo}/releases/latest"
-    req = Request(url)
-    # Add User-Agent as required by GitHub API
-    req.add_header('User-Agent', 'Gemini-CLI-Homebrew-Updater')
+    req = create_github_request(url, token=token)
     
     with urlopen(req) as response:
         data = json.loads(response.read().decode())
@@ -80,7 +79,10 @@ def main():
     parser.add_argument("formula_name", nargs="?", help="Name of the formula to update")
     parser.add_argument("--dry-run", action="store_true", help="Preview changes without applying them")
     parser.add_argument("--version-override", help="Force update to a specific version")
+    parser.add_argument("--env-file", default=".env", help="Path to .env file (default: .env)")
     args = parser.parse_args()
+
+    token = get_github_token(args.env_file)
 
     match, all_formulas = find_formula(args.formula_name)
 
@@ -109,19 +111,19 @@ def main():
         latest_version = args.version_override
         print(f"Using version override: {latest_version}")
     else:
-            try:
-                latest_version, assets = get_latest_release(repo)
-                print(f"Latest version: {latest_version}")
-            except Exception as e:
-                print(f"Error fetching latest release from GitHub: {e}")
-                sys.exit(1)
-        
-            new_content, old_version = update_formula_content(content, latest_version, assets)
-        
-            if old_version == latest_version and content == new_content:
-                print(f"Formula is already at the latest version ({latest_version}) and content is up to date.")
-                return
-            print(f"Updating {match} from {old_version} to {latest_version}")
+        try:
+            latest_version, assets = get_latest_release(repo, token=token)
+            print(f"Latest version: {latest_version}")
+        except Exception as e:
+            print(f"Error fetching latest release from GitHub: {e}")
+            sys.exit(1)
+    
+        new_content, old_version = update_formula_content(content, latest_version, assets)
+    
+        if old_version == latest_version and content == new_content:
+            print(f"Formula is already at the latest version ({latest_version}) and content is up to date.")
+            return
+        print(f"Updating {match} from {old_version} to {latest_version}")
 
     if args.dry_run:
         print("--- DRY RUN: Proposed Changes ---")

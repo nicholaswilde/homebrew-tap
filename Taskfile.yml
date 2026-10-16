@@ -11,6 +11,13 @@ tasks:
     cmds:
       - uv sync
 
+  init:
+    desc: Copy .env.example to .env
+    status:
+      - test -f .env
+    cmds:
+      - cp .env.example .env
+
   audit:
     desc: Audit all formulas in the tap
     cmds:
@@ -30,64 +37,64 @@ tasks:
   audit:adguardhome-mcp-rs:
     desc: Audit adguardhome-mcp-rs formula
     cmds:
-      - brew audit --tap nicholaswilde/homebrew-tap Formula/adguardhome-mcp-rs.rb
+      - brew audit nicholaswilde/tap/adguardhome-mcp-rs
 
   audit:aria2-mcp-rs:
     desc: Audit aria2-mcp-rs formula
     cmds:
-      - brew audit --tap nicholaswilde/homebrew-tap Formula/aria2-mcp-rs.rb
+      - brew audit nicholaswilde/tap/aria2-mcp-rs
 
   audit:changedetection-mcp-rs:
     desc: Audit changedetection-mcp-rs formula
     cmds:
-      - brew audit --tap nicholaswilde/homebrew-tap Formula/changedetection-mcp-rs.rb
+      - brew audit nicholaswilde/tap/changedetection-mcp-rs
 
   audit:cook-docs:
     desc: Audit cook-docs formula
     cmds:
-      - brew audit --tap nicholaswilde/homebrew-tap Formula/cook-docs.rb
+      - brew audit nicholaswilde/tap/cook-docs
 
   audit:gatus-mcp-rs:
     desc: Audit gatus-mcp-rs formula
     cmds:
-      - brew audit --tap nicholaswilde/homebrew-tap Formula/gatus-mcp-rs.rb
+      - brew audit nicholaswilde/tap/gatus-mcp-rs
 
   audit:proxmox-mcp-rs:
     desc: Audit proxmox-mcp-rs formula
     cmds:
-      - brew audit --tap nicholaswilde/homebrew-tap Formula/proxmox-mcp-rs.rb
+      - brew audit nicholaswilde/tap/proxmox-mcp-rs
 
   audit:qbittorrent-mcp-rs:
     desc: Audit qbittorrent-mcp-rs formula
     cmds:
-      - brew audit --tap nicholaswilde/homebrew-tap Formula/qbittorrent-mcp-rs.rb
+      - brew audit nicholaswilde/tap/qbittorrent-mcp-rs
 
   audit:recipes-mcp-rs:
     desc: Audit recipes-mcp-rs formula
     cmds:
-      - brew audit --tap nicholaswilde/homebrew-tap Formula/recipes-mcp-rs.rb
+      - brew audit nicholaswilde/tap/recipes-mcp-rs
 
   audit:rescue-groups-mcp:
     desc: Audit rescue-groups-mcp formula
     cmds:
-      - brew audit --tap nicholaswilde/homebrew-tap Formula/rescue-groups-mcp.rb
+      - brew audit nicholaswilde/tap/rescue-groups-mcp
 
   audit:side-eye-host:
     desc: Audit side-eye-host formula
     cmds:
-      - brew audit --tap nicholaswilde/homebrew-tap Formula/side-eye-host.rb
+      - brew audit nicholaswilde/tap/side-eye-host
 
   audit:syncthing-mcp-rs:
     desc: Audit syncthing-mcp-rs formula
     cmds:
-      - brew audit --tap nicholaswilde/homebrew-tap Formula/syncthing-mcp-rs.rb
+      - brew audit nicholaswilde/tap/syncthing-mcp-rs
 
   audit:sysmqttd:
     desc: Audit sysmqttd formula
     cmds:
-      - brew audit --tap nicholaswilde/homebrew-tap Formula/sysmqttd.rb
+      - brew audit nicholaswilde/tap/sysmqttd
 
   test:
     desc: Test all formulas in the tap
     cmds:
-      - brew test Formula/*.rb
+      - brew test $(basename -s .rb Formula/*.rb)

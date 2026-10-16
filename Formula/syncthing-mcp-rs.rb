@@ -4,7 +4,6 @@
 class SyncthingMcpRs < Formula
   desc "🔄 An MCP server written in Rust for controlling SyncThing 🤖"
   homepage "https://github.com/nicholaswilde/syncthing-mcp-rs"
-  version "0.1.19"
   license "Apache-2.0"
 
   on_macos do

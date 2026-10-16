@@ -5,11 +5,11 @@ import re
 import json
 import hashlib
 from urllib.request import urlopen, Request
+from github_utils import get_github_token, create_github_request
 
-def get_repo_details(repo):
+def get_repo_details(repo, token=None):
     url = f"https://api.github.com/repos/{repo}"
-    req = Request(url)
-    req.add_header('User-Agent', 'Gemini-CLI-Homebrew-Updater')
+    req = create_github_request(url, token=token)
     
     with urlopen(req) as response:
         data = json.loads(response.read().decode())
@@ -19,10 +19,9 @@ def get_repo_details(repo):
             "license": data.get("license", {}).get("spdx_id", "Apache-2.0") if data.get("license") else "Apache-2.0"
         }
 
-def get_latest_release(repo):
+def get_latest_release(repo, token=None):
     url = f"https://api.github.com/repos/{repo}/releases/latest"
-    req = Request(url)
-    req.add_header('User-Agent', 'Gemini-CLI-Homebrew-Updater')
+    req = create_github_request(url, token=token)
     
     with urlopen(req) as response:
         data = json.loads(response.read().decode())
@@ -154,7 +153,7 @@ def update_taskfile(formula_name):
         new_lines.append(f"\n  audit:{formula_name}:\n")
         new_lines.append(f"    desc: Audit {formula_name} formula\n")
         new_lines.append(f"    cmds:\n")
-        new_lines.append(f"      - brew audit --tap nicholaswilde/homebrew-tap Formula/{formula_name}.rb\n")
+        new_lines.append(f"      - brew audit nicholaswilde/tap/{formula_name}\n")
 
     with open(taskfile_path, "w") as f:
         f.writelines(new_lines)
@@ -165,18 +164,21 @@ def main():
     parser.add_argument("owner", nargs="?", default="nicholaswilde", help="GitHub owner (default: nicholaswilde)")
     parser.add_argument("--repo", help="GitHub repository name (defaults to formula_name)")
     parser.add_argument("--dry-run", action="store_true", help="Preview changes without applying them")
+    parser.add_argument("--env-file", default=".env", help="Path to .env file (default: .env)")
     args = parser.parse_args()
+
+    token = get_github_token(args.env_file)
 
     repo_name = args.repo if args.repo else args.formula_name
     repo = f"{args.owner}/{repo_name}"
     print(f"Adding formula {args.formula_name} for repository: {repo}")
 
     try:
-        details = get_repo_details(repo)
+        details = get_repo_details(repo, token=token)
         details['repo_name'] = repo_name
         print(f"Fetched details: {details}")
         
-        version, assets = get_latest_release(repo)
+        version, assets = get_latest_release(repo, token=token)
         print(f"Latest version: {version}")
         
         class_name = to_camel_case(args.formula_name)

@@ -1,8 +1,9 @@
 # gemini-cli settings
 .gemini/
 
-# GitHub App credentials
+# GitHub App credentials and secrets
 gha-creds-*.json
+.env
 
 # Python and virtual environments
 .venv/
