@@ -8,31 +8,31 @@ class ProxmoxMcpRs < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/proxmox-mcp-rs/releases/download/v0.3.34/proxmox-mcp-rs-0.3.34-aarch64-apple-darwin.tar.gz"
-      sha256 "8ea09b18c671c29785a34432c3359caf5804b6f58e8cd95154eeb0c6dc005aee"
+      url "https://github.com/nicholaswilde/proxmox-mcp-rs/releases/download/v0.3.35/proxmox-mcp-rs-0.3.35-aarch64-apple-darwin.tar.gz"
+      sha256 "882bc1206ab1f03f5ec732a99527307457e0029f198f4e5b47f4964c8283653a"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/proxmox-mcp-rs/releases/download/v0.3.34/proxmox-mcp-rs-0.3.34-x86_64-apple-darwin.tar.gz"
-      sha256 "d67996916b6d48e688e3a8979437894b694212836e691e4c18ec198dd1cf286b"
+      url "https://github.com/nicholaswilde/proxmox-mcp-rs/releases/download/v0.3.35/proxmox-mcp-rs-0.3.35-x86_64-apple-darwin.tar.gz"
+      sha256 "f01f6521f32a19b1bae4901e38be998c6523b7243484c5589f72f6a9a63c84ba"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/proxmox-mcp-rs/releases/download/v0.3.34/proxmox-mcp-rs-0.3.34-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "d0029dcb1932d2ba91203c5ee4a03076c304af1e3fef487afb08170483a4b3ca"
+      url "https://github.com/nicholaswilde/proxmox-mcp-rs/releases/download/v0.3.35/proxmox-mcp-rs-0.3.35-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "b822337730b9e4016524ab67c68d64de30022354108da3f1588aa3495deb4a3c"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/proxmox-mcp-rs/releases/download/v0.3.34/proxmox-mcp-rs-0.3.34-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "eaad7e0069d9dd9cc82c3501b6439078a35ca4ce3268e477fe457841cda71767"
+      url "https://github.com/nicholaswilde/proxmox-mcp-rs/releases/download/v0.3.35/proxmox-mcp-rs-0.3.35-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "5378a35a06cbe0302ae045f6432deddcb321ce73401f40cd05708b95d783b796"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
       if Utils.safe_popen_read("uname", "-m").include?("armv6")
-        url "https://github.com/nicholaswilde/proxmox-mcp-rs/releases/download/v0.3.34/proxmox-mcp-rs-0.3.34-arm-unknown-linux-gnueabihf.tar.gz"
-        sha256 "cc37eb7b9c587252883df994ed32ecd0a242dec5a9354a3fbbb7cc3259fc21e9"
+        url "https://github.com/nicholaswilde/proxmox-mcp-rs/releases/download/v0.3.35/proxmox-mcp-rs-0.3.35-arm-unknown-linux-gnueabihf.tar.gz"
+        sha256 "66274368c1857037fc581d81d8f96763d547af12f2ff581a29680b49b20f2e06"
       else
-        url "https://github.com/nicholaswilde/proxmox-mcp-rs/releases/download/v0.3.34/proxmox-mcp-rs-0.3.34-armv7-unknown-linux-musleabihf.tar.gz"
-        sha256 "7da1564c65c267d6b419a3380a803e5e2c7f22655d0a0b0ff0e1590366f44bbc"
+        url "https://github.com/nicholaswilde/proxmox-mcp-rs/releases/download/v0.3.35/proxmox-mcp-rs-0.3.35-armv7-unknown-linux-musleabihf.tar.gz"
+        sha256 "b55257145ef3d1acce965ce8553976d536001ae6cc6f0911a8e8860ac725b4b9"
       end
     end
   end
