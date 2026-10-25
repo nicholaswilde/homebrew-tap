@@ -15,7 +15,7 @@ def get_repo_details(repo, token=None):
         data = json.loads(response.read().decode())
         return {
             "description": data.get("description", ""),
-            "homepage": data.get("homepage", data.get("html_url", "")),
+            "homepage": data.get("homepage") or data.get("html_url", ""),
             "license": data.get("license", {}).get("spdx_id", "Apache-2.0") if data.get("license") else "Apache-2.0"
         }
 
@@ -43,7 +43,8 @@ def map_assets(assets):
         "macos_x86_64": [r"Darwin_x86_64", r"x86_64-apple-darwin"],
         "linux_arm64": [r"Linux_arm64", r"aarch64-unknown-linux-musl"],
         "linux_x86_64": [r"Linux_x86_64", r"x86_64-unknown-linux-musl"],
-        "linux_armv6": [r"Linux_armv6", r"arm-unknown-linux-gnueabihf", r"armv7-unknown-linux-musleabihf"]
+        "linux_armv6": [r"Linux_armv6", r"arm-unknown-linux-gnueabihf"],
+        "linux_armv7": [r"Linux_armv7", r"armv7-unknown-linux-musleabihf"]
     }
     
     result = {}
@@ -64,7 +65,6 @@ def generate_formula(class_name, details, version, mapped_assets):
 class {class_name} < Formula
   desc "{details['description']}"
   homepage "{details['homepage']}"
-  version "{version}"
   license "{details['license']}"
 
   on_macos do
@@ -101,8 +101,28 @@ class {class_name} < Formula
       sha256 "{info['sha256']}"
     end
 """
-    if "linux_armv6" in mapped_assets:
+    if "linux_armv6" in mapped_assets and "linux_armv7" in mapped_assets:
+        v6_info = mapped_assets["linux_armv6"]
+        v7_info = mapped_assets["linux_armv7"]
+        template += f"""    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      if Utils.safe_popen_read("uname", "-m").include?("armv6")
+        url "{v6_info['url']}"
+        sha256 "{v6_info['sha256']}"
+      else
+        url "{v7_info['url']}"
+        sha256 "{v7_info['sha256']}"
+      end
+    end
+"""
+    elif "linux_armv6" in mapped_assets:
         info = mapped_assets["linux_armv6"]
+        template += f"""    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "{info['url']}"
+      sha256 "{info['sha256']}"
+    end
+"""
+    elif "linux_armv7" in mapped_assets:
+        info = mapped_assets["linux_armv7"]
         template += f"""    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
       url "{info['url']}"
       sha256 "{info['sha256']}"

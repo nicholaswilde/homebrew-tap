@@ -30,6 +30,7 @@ brew install <formula>
 - `side-eye-host`: USB Stat Monitor for Linux rig.
 - `syncthing-mcp-rs`: 🔄 An MCP server written in Rust for controlling SyncThing 🤖
 - `sysmqttd`: 📟 An ultra-lightweight system monitoring & GPIO actuation daemon in Rust with MQTT autodiscovery 📡
+- `tfa`: 🔐 Fast, lightweight, and secure command-line Two-Factor Authentication (2FA/TOTP/HOTP) generator and manager in Rust 🦀
 
 ## 🛠️ Development
 

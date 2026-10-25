@@ -33,6 +33,7 @@ tasks:
       - task: audit:side-eye-host
       - task: audit:syncthing-mcp-rs
       - task: audit:sysmqttd
+      - task: audit:tfa
 
   audit:adguardhome-mcp-rs:
     desc: Audit adguardhome-mcp-rs formula
@@ -93,6 +94,11 @@ tasks:
     desc: Audit sysmqttd formula
     cmds:
       - brew audit nicholaswilde/tap/sysmqttd
+
+  audit:tfa:
+    desc: Audit tfa formula
+    cmds:
+      - brew audit nicholaswilde/tap/tfa
 
   test:
     desc: Test all formulas in the tap
