@@ -50,7 +50,8 @@ def update_formula_content(content, new_version, assets):
     # We'll iterate through each url/sha256 pair in the file
     def replace_hashes(match):
         url_line = match.group(1)
-        old_hash = match.group(2)
+        indent = match.group(2)
+        old_hash = match.group(3)
         
         # Extract filename from URL
         filename_match = re.search(r'/([^/]+\.tar\.gz)"', url_line)
@@ -64,12 +65,12 @@ def update_formula_content(content, new_version, assets):
         if asset_url:
             print(f"Calculating hash for {filename}...")
             new_hash = calculate_sha256(asset_url)
-            return f'{url_line}\n      sha256 "{new_hash}"'
+            return f'{url_line}\n{indent}sha256 "{new_hash}"'
         
         return match.group(0)
 
     # This regex finds a url line followed by a sha256 line
-    pattern = r'(url\s+"https://github\.com/[^"]+")\n\s+sha256\s+"([a-f0-9]+)"'
+    pattern = r'(url\s+"https://github\.com/[^"]+")\n(\s+)sha256\s+"([a-f0-9]+)"'
     new_content = re.sub(pattern, replace_hashes, new_content)
     
     return new_content, old_version

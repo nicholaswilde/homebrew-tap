@@ -8,31 +8,31 @@ class Tfa < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/tfa/releases/download/v0.1.4/tfa-0.1.4-aarch64-apple-darwin.tar.gz"
-      sha256 "7457cceaf15557de166e179d7f9e11caee64350ff23f77dcb9d2a54bd90cfafd"
+      url "https://github.com/nicholaswilde/tfa/releases/download/v0.1.5/tfa-0.1.5-aarch64-apple-darwin.tar.gz"
+      sha256 "9f8c299e0d50dc55c96ad3c8698325e1704ea638ecf682527be191e266624a61"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/tfa/releases/download/v0.1.4/tfa-0.1.4-x86_64-apple-darwin.tar.gz"
-      sha256 "c63816329ee7b6ccc5d4730264abcac8e114a4edb6b918f6293c8a409bd48aef"
+      url "https://github.com/nicholaswilde/tfa/releases/download/v0.1.5/tfa-0.1.5-x86_64-apple-darwin.tar.gz"
+      sha256 "b6eed86a3cbf38aaa2e3f86f24ed5bfd83d36d8783225cb366c6f6513313439d"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/tfa/releases/download/v0.1.4/tfa-0.1.4-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "580e53586f0ef0b49dc5ca5e4b54dcb8c846eb874d22c6dc2b1d3d7d71a09996"
+      url "https://github.com/nicholaswilde/tfa/releases/download/v0.1.5/tfa-0.1.5-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "79473a5ea334733e5c3a78cdeba3162c56b9de7c5ee7eb7113667e840965fbef"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/tfa/releases/download/v0.1.4/tfa-0.1.4-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "7004c7d185257544fb433d4022d3ce70e1a74a6c616c3dbbcf04297422ba0f63"
+      url "https://github.com/nicholaswilde/tfa/releases/download/v0.1.5/tfa-0.1.5-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "bf2275e3b52e65e4a64e398c16c2e4c02fb4444cf3769ff4a77c8b8a41243f13"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
       if Utils.safe_popen_read("uname", "-m").include?("armv6")
-        url "https://github.com/nicholaswilde/tfa/releases/download/v0.1.4/tfa-0.1.4-arm-unknown-linux-gnueabihf.tar.gz"
-        sha256 "acf6f777ce54399d9359c3a5b68f2a20f5cb03593b318c5612de3c542037cfde"
+        url "https://github.com/nicholaswilde/tfa/releases/download/v0.1.5/tfa-0.1.5-arm-unknown-linux-gnueabihf.tar.gz"
+        sha256 "d320c5b3d9cfb96a8cf52cf4915638aea370ac8c17401852c560e5a07de6ea6e"
       else
-        url "https://github.com/nicholaswilde/tfa/releases/download/v0.1.4/tfa-0.1.4-armv7-unknown-linux-musleabihf.tar.gz"
-        sha256 "5427b8f8e2120ed978ce0463c0f1521cea98b171369c6161503a1a5e4f25a212"
+        url "https://github.com/nicholaswilde/tfa/releases/download/v0.1.5/tfa-0.1.5-armv7-unknown-linux-musleabihf.tar.gz"
+        sha256 "3c6ce4a5248961e850fd66e62938e395009ce8cffcfcdc06f58985207aa2925e"
       end
     end
   end
