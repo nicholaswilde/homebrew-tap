@@ -7,8 +7,16 @@ The homebrew tap for various tools.
 First, tap the repository:
 
 ```bash
-brew tap nicholaswilde/homebrew-tap
+brew tap nicholaswilde/tap
 ```
+
+Trust the tap:
+
+```bash
+brew trust --tap nicholaswilde/tap
+```
+
+Homebrew uses `brew trust` to authorize non-official third-party taps. Trusting this tap allows Homebrew to safely load and evaluate its formulae and commands without security warnings or restrictions. Trusted entries are stored in `~/.homebrew/trust.json` (or `$XDG_CONFIG_HOME/homebrew/trust.json`).
 
 Then, install a formula:
 
