@@ -1,0 +1,203 @@
+# nicholaswilde/homebrew-tap
+
+> Homebrew tap providing CLI tools, daemons, and Model Context Protocol (MCP) servers primarily written in Rust for macOS and Linux.
+
+This repository is a Homebrew tap maintained by Nicholas Wilde. It hosts formulas for tools and MCP servers with multi-platform precompiled binary distribution across macOS (ARM64, Intel) and Linux (x86_64, aarch64, armv6, armv7).
+
+## Table of Contents
+
+- Installation and Usage
+- Formulas Overview
+- Detailed Formula Specifications
+- Development and Maintenance
+- Licensing
+
+---
+
+## Installation and Usage
+
+To use this tap on macOS or Linux via Homebrew:
+
+### 1. Tap Repository
+
+```bash
+brew tap nicholaswilde/homebrew-tap
+```
+
+### 2. Install Formulas
+
+```bash
+brew install <formula_name>
+```
+
+Or install directly using the fully-qualified name without tapping first:
+
+```bash
+brew install nicholaswilde/tap/<formula_name>
+```
+
+### 3. Update Formulas
+
+```bash
+brew update
+brew upgrade <formula_name>
+```
+
+---
+
+## Formulas Overview
+
+| Formula | Description | Platforms | Upstream Repository |
+|---|---|---|---|
+| `adguardhome-mcp-rs` | Rust implementation of an AdGuard Home MCP server | macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7) | [nicholaswilde/adguardhome-mcp-rs](https://github.com/nicholaswilde/adguardhome-mcp-rs) |
+| `aria2-mcp-rs` | Rust implementation of an aria2 MCP server | macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7) | [nicholaswilde/aria2-mcp-rs](https://github.com/nicholaswilde/aria2-mcp-rs) |
+| `changedetection-mcp-rs` | Rust implementation of a ChangeDetection.io MCP server | macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7) | [nicholaswilde/changedetection-mcp-rs](https://github.com/nicholaswilde/changedetection-mcp-rs) |
+| `cook-docs` | Tool for generating markdown documentation for Cooklang recipes | macOS (arm64, x86_64), Linux (arm64, x86_64) | [nicholaswilde/cook-docs](https://github.com/nicholaswilde/cook-docs) |
+| `gatus-mcp-rs` | Rust implementation of a Gatus MCP server | macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7) | [nicholaswilde/gatus-mcp-rs](https://github.com/nicholaswilde/gatus-mcp-rs) |
+| `proxmox-mcp-rs` | Rust implementation of a Proxmox MCP server | macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7) | [nicholaswilde/proxmox-mcp-rs](https://github.com/nicholaswilde/proxmox-mcp-rs) |
+| `qbittorrent-mcp-rs` | Rust implementation of a qBittorrent MCP server | macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7) | [nicholaswilde/qbittorrent-mcp-rs](https://github.com/nicholaswilde/qbittorrent-mcp-rs) |
+| `recipes-mcp-rs` | Rust implementation of a recipes import MCP server | macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7) | [nicholaswilde/recipes-mcp-rs](https://github.com/nicholaswilde/recipes-mcp-rs) |
+| `rescue-groups-mcp` | Rust implementation of a Rescue Groups MCP server | macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7) | [nicholaswilde/rescue-groups-mcp](https://github.com/nicholaswilde/rescue-groups-mcp) |
+| `side-eye-host` | USB stat monitor daemon for Linux rig | macOS (arm64, x86_64), Linux (arm64, x86_64) | [nicholaswilde/side-eye](https://github.com/nicholaswilde/side-eye) |
+| `syncthing-mcp-rs` | Rust implementation of a SyncThing MCP server | macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7) | [nicholaswilde/syncthing-mcp-rs](https://github.com/nicholaswilde/syncthing-mcp-rs) |
+| `sysmqttd` | System monitoring & GPIO actuation daemon in Rust with MQTT autodiscovery | Linux (arm64, x86_64, armv6, armv7) | [nicholaswilde/sysmqttd](https://github.com/nicholaswilde/sysmqttd) |
+| `tfa` | Fast command-line 2FA/TOTP/HOTP generator and manager in Rust | macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7) | [nicholaswilde/tfa](https://github.com/nicholaswilde/tfa) |
+
+---
+
+## Detailed Formula Specifications
+
+### 1. adguardhome-mcp-rs
+- **Formula File**: `Formula/adguardhome-mcp-rs.rb`
+- **Description**: Rust implementation of an AdGuard Home MCP (Model Context Protocol) server.
+- **Homepage**: https://github.com/nicholaswilde/adguardhome-mcp-rs
+- **Binary Installed**: `adguardhome-mcp-rs`
+- **Supported Targets**:
+  - macOS ARM64 (`aarch64-apple-darwin`)
+  - macOS Intel (`x86_64-apple-darwin`)
+  - Linux ARM64 (`aarch64-unknown-linux-musl`)
+  - Linux x86_64 (`x86_64-unknown-linux-musl`)
+  - Linux ARMv6 (`arm-unknown-linux-gnueabihf`)
+  - Linux ARMv7 (`armv7-unknown-linux-musleabihf`)
+
+### 2. aria2-mcp-rs
+- **Formula File**: `Formula/aria2-mcp-rs.rb`
+- **Description**: Rust implementation of an aria2 MCP server.
+- **Homepage**: https://github.com/nicholaswilde/aria2-mcp-rs
+- **Binary Installed**: `aria2-mcp-rs`
+- **Supported Targets**: macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7)
+
+### 3. changedetection-mcp-rs
+- **Formula File**: `Formula/changedetection-mcp-rs.rb`
+- **Description**: Rust implementation of a ChangeDetection.io MCP server.
+- **Homepage**: https://github.com/nicholaswilde/changedetection-mcp-rs
+- **Binary Installed**: `changedetection-mcp-rs`
+- **Supported Targets**: macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7)
+
+### 4. cook-docs
+- **Formula File**: `Formula/cook-docs.rb`
+- **Description**: Tool for generating markdown documentation for Cooklang recipes.
+- **Homepage**: https://nicholaswilde.io/cook-docs
+- **Binary Installed**: `cook-docs`
+- **Supported Targets**: macOS (arm64, x86_64), Linux (arm64, x86_64)
+
+### 5. gatus-mcp-rs
+- **Formula File**: `Formula/gatus-mcp-rs.rb`
+- **Description**: Rust implementation of a Gatus MCP server.
+- **Homepage**: https://github.com/nicholaswilde/gatus-mcp-rs
+- **Binary Installed**: `gatus-mcp-rs`
+- **Supported Targets**: macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7)
+
+### 6. proxmox-mcp-rs
+- **Formula File**: `Formula/proxmox-mcp-rs.rb`
+- **Description**: Rust implementation of a Proxmox MCP server.
+- **Homepage**: https://github.com/nicholaswilde/proxmox-mcp-rs
+- **Binary Installed**: `proxmox-mcp-rs`
+- **Supported Targets**: macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7)
+
+### 7. qbittorrent-mcp-rs
+- **Formula File**: `Formula/qbittorrent-mcp-rs.rb`
+- **Description**: qBittorrent MCP server written in Rust.
+- **Homepage**: https://github.com/nicholaswilde/qbittorrent-mcp-rs
+- **Binary Installed**: `qbittorrent-mcp-rs`
+- **Supported Targets**: macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7)
+
+### 8. recipes-mcp-rs
+- **Formula File**: `Formula/recipes-mcp-rs.rb`
+- **Description**: MCP server that imports recipes written in Rust.
+- **Homepage**: https://github.com/nicholaswilde/recipes-mcp-rs
+- **Binary Installed**: `recipes-mcp-rs`
+- **Supported Targets**: macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7)
+
+### 9. rescue-groups-mcp
+- **Formula File**: `Formula/rescue-groups-mcp.rb`
+- **Description**: MCP server to interface with Rescue Groups written in Rust.
+- **Homepage**: https://github.com/nicholaswilde/rescue-groups-mcp
+- **Binary Installed**: `rescue-groups-mcp`
+- **Supported Targets**: macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7)
+
+### 10. side-eye-host
+- **Formula File**: `Formula/side-eye-host.rb`
+- **Description**: USB stat monitor daemon for Linux rigs.
+- **Homepage**: https://github.com/nicholaswilde/side-eye
+- **Binary Installed**: `side-eye-host`
+- **Supported Targets**: macOS (arm64, x86_64), Linux (arm64, x86_64)
+
+### 11. syncthing-mcp-rs
+- **Formula File**: `Formula/syncthing-mcp-rs.rb`
+- **Description**: MCP server written in Rust for controlling SyncThing.
+- **Homepage**: https://github.com/nicholaswilde/syncthing-mcp-rs
+- **Binary Installed**: `syncthing-mcp-rs`
+- **Supported Targets**: macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7)
+
+### 12. sysmqttd
+- **Formula File**: `Formula/sysmqttd.rb`
+- **Description**: System monitoring & GPIO actuation daemon in Rust with MQTT autodiscovery.
+- **Homepage**: https://github.com/nicholaswilde/sysmqttd
+- **Binary Installed**: `sysmqttd`
+- **Supported Targets**: Linux (arm64, x86_64, armv6, armv7)
+
+### 13. tfa
+- **Formula File**: `Formula/tfa.rb`
+- **Description**: Fast, lightweight, and secure command-line Two-Factor Authentication (2FA/TOTP/HOTP) generator and manager in Rust.
+- **Homepage**: https://github.com/nicholaswilde/tfa
+- **Binary Installed**: `tfa`
+- **Supported Targets**: macOS (arm64, x86_64), Linux (arm64, x86_64, armv6, armv7)
+
+---
+
+## Development and Maintenance
+
+### Auditing Formulas
+
+Run Homebrew audits across formulas using the Taskfile:
+
+```bash
+# Audit all formulas
+task audit
+
+# Audit a specific formula
+task audit:<formula_name>
+```
+
+### Automated Updates
+
+Formula updates are handled through the Python helper scripts in `scripts/`:
+
+```bash
+# Preview update
+uv run scripts/update_formula.py <formula_name> --dry-run
+
+# Apply update
+uv run scripts/update_formula.py <formula_name>
+```
+
+When updating:
+- Checksums are recalculated directly by downloading release assets.
+- 32-bit Linux ARM checks distinguish between ARMv6 (`arm-unknown-linux-gnueabihf`) and ARMv7 (`armv7-unknown-linux-musleabihf`).
+
+---
+
+## Licensing
+
+Distributed under the Apache License 2.0. See [LICENSE](https://github.com/nicholaswilde/homebrew-tap/blob/main/LICENSE) for details.

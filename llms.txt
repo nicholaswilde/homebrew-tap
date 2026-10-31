@@ -1,0 +1,39 @@
+# nicholaswilde/homebrew-tap
+
+> Homebrew tap providing CLI tools, daemons, and Model Context Protocol (MCP) servers primarily written in Rust for macOS and Linux.
+
+This repository is a Homebrew tap maintained by Nicholas Wilde. It hosts formulas for tools and MCP servers with multi-platform precompiled binary distribution across macOS (ARM64, Intel) and Linux (x86_64, aarch64, armv6, armv7).
+
+## Installation and Usage
+
+- [Tap Repository](https://github.com/nicholaswilde/homebrew-tap): Run `brew tap nicholaswilde/homebrew-tap` to add this tap.
+- [Install Formula](https://github.com/nicholaswilde/homebrew-tap#usage): Run `brew install nicholaswilde/tap/<formula>` or `brew install <formula>` after tapping.
+
+## MCP Servers
+
+- [adguardhome-mcp-rs](https://github.com/nicholaswilde/adguardhome-mcp-rs): Rust implementation of an AdGuard Home MCP server.
+- [aria2-mcp-rs](https://github.com/nicholaswilde/aria2-mcp-rs): Rust implementation of an aria2 MCP server.
+- [changedetection-mcp-rs](https://github.com/nicholaswilde/changedetection-mcp-rs): Rust implementation of a ChangeDetection.io MCP server.
+- [gatus-mcp-rs](https://github.com/nicholaswilde/gatus-mcp-rs): Rust implementation of a Gatus MCP server.
+- [proxmox-mcp-rs](https://github.com/nicholaswilde/proxmox-mcp-rs): Rust implementation of a Proxmox MCP server.
+- [qbittorrent-mcp-rs](https://github.com/nicholaswilde/qbittorrent-mcp-rs): Rust implementation of a qBittorrent MCP server.
+- [recipes-mcp-rs](https://github.com/nicholaswilde/recipes-mcp-rs): Rust implementation of a recipes import MCP server.
+- [rescue-groups-mcp](https://github.com/nicholaswilde/rescue-groups-mcp): Rust implementation of a Rescue Groups MCP server.
+- [syncthing-mcp-rs](https://github.com/nicholaswilde/syncthing-mcp-rs): Rust implementation of a SyncThing MCP server.
+
+## CLI Tools & Daemons
+
+- [cook-docs](https://nicholaswilde.io/cook-docs): CLI tool for generating markdown documentation for Cooklang recipes.
+- [side-eye-host](https://github.com/nicholaswilde/side-eye): USB stat monitor daemon for Linux rigs.
+- [sysmqttd](https://github.com/nicholaswilde/sysmqttd): Ultra-lightweight system monitoring & GPIO actuation daemon in Rust with MQTT autodiscovery.
+- [tfa](https://github.com/nicholaswilde/tfa): Fast, lightweight, and secure command-line 2FA/TOTP/HOTP manager and generator in Rust.
+
+## Development & Maintenance
+
+- [Taskfile Tasks](https://github.com/nicholaswilde/homebrew-tap/blob/main/Taskfile.yml): Automation commands for formula auditing (`task audit`) and testing (`task test`).
+- [Repository Guidelines](https://github.com/nicholaswilde/homebrew-tap/blob/main/AGENTS.md): Formula coding standards, multi-architecture URL mappings, and SHA256 checksum requirements.
+
+## Optional
+
+- [License](https://github.com/nicholaswilde/homebrew-tap/blob/main/LICENSE): Apache 2.0 license terms.
+- [Author Profile](https://github.com/nicholaswilde): Upstream project maintainer profile.
