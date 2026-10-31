@@ -32,7 +32,35 @@ You are an automated Homebrew formula updater. Your goal is to keep formulas in 
 
 ## Tool Usage
 You have access to the shell. Use standard tools like `curl`, `sha256sum`, `gh` (GitHub CLI), and `uv` to perform your tasks.
-1. When running the `gh` command, always pipe it to `cat` (e.g., `gh release view | cat`) to prevent the CLI from using a pager or waiting for interactive input in non-interactive terminal sessions.
+1. When running the `gh` command, always use `rtk` and pipe to `cat` (e.g., `rtk gh release view --json tagName,assets | cat`) to filter output and prevent the CLI from hanging in interactive pagers.
 2. For executing Python scripts in this repository, always use `uv run` (e.g., `uv run scripts/update_formula.py <formula_name>`) to ensure a consistent environment and dependency resolution.
+
+<!-- rtk-begin -->
+## RTK (`rtk`) Command Proxy
+
+Prefix raw shell commands with `rtk` whenever subcommand exists. `rtk` filters and compresses output before model context.
+
+### Command Map
+
+| Raw | Use |
+|---|---|
+| `git <cmd>` | `rtk git <cmd>` |
+| `gh <cmd>` | `rtk gh <cmd> \| cat` |
+| `rg` / `grep` | `rtk rg` / `rtk grep` |
+| `ls` / `tree` / `find` | `rtk ls` / `rtk tree` / `rtk find` |
+| `cat <file>` (to inspect) | `rtk read <file>` |
+| `diff` | `rtk diff` |
+| `wc` | `rtk wc` |
+| tests / checks (`task audit:*`) | `rtk test <cmd>` or `rtk err <cmd>` |
+| build / lint (`task lint`) | `rtk err <cmd>` |
+| noisy output | `rtk summary <cmd>` |
+
+### Exceptions
+
+1. **ctx sandbox**: inside `ctx_execute` / `ctx_batch_execute`, skip `rtk`; only printed output enters context.
+2. **Exact output needed**: drop `rtk` when raw bytes matter (`git diff` patch, verbatim file edit).
+3. **No subcommand**: run commands without `rtk` subcommand raw (`mkdir`, `rm`, `uv run`).
+4. **Unknown**: check `rtk --help` before assuming subcommand exists.
+<!-- rtk-end -->
 
 
