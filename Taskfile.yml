@@ -25,6 +25,7 @@ tasks:
       - task: audit:aria2-mcp-rs
       - task: audit:changedetection-mcp-rs
       - task: audit:cook-docs
+      - task: audit:enstow
       - task: audit:gatus-mcp-rs
       - task: audit:proxmox-mcp-rs
       - task: audit:qbittorrent-mcp-rs
@@ -54,6 +55,11 @@ tasks:
     desc: Audit cook-docs formula
     cmds:
       - brew audit nicholaswilde/tap/cook-docs
+
+  audit:enstow:
+    desc: Audit enstow formula
+    cmds:
+      - brew audit nicholaswilde/tap/enstow
 
   audit:gatus-mcp-rs:
     desc: Audit gatus-mcp-rs formula

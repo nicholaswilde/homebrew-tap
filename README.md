@@ -30,6 +30,7 @@ brew install <formula>
 - `aria2-mcp-rs`: 🦀 A rust implementation of an aria2 MCP server. 🤖
 - `changedetection-mcp-rs`: 🔄 A Rust implementation of a ChangeDetection.io MCP server 🤖
 - `cook-docs`: A tool for automatically generating markdown documentation for cooklang recipes.
+- `enstow`: 📦 Secret-aware dotfile manager combining stow symlinking with sops and age decryption in Rust 🦀
 - `gatus-mcp-rs`: 🦀 A Rust implementation of a Gatus MCP server 🤖
 - `proxmox-mcp-rs`: 🦀 A rust implementation of a proxmox MCP server. 🤖
 - `qbittorrent-mcp-rs`: 🧲 A qBittorrent MCP server written in Rust 🤖
