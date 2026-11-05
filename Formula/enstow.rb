@@ -8,31 +8,31 @@ class Enstow < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/enstow/releases/download/v0.1.4/enstow-0.1.4-aarch64-apple-darwin.tar.gz"
-      sha256 "684d85ecc5198fa5d4b3c20e8211a325bfcd703f5e6e3a7d815a7e218cc8e1a4"
+      url "https://github.com/nicholaswilde/enstow/releases/download/v0.1.5/enstow-0.1.5-aarch64-apple-darwin.tar.gz"
+      sha256 "05b09d44062835b17c26ce344a3528847b94dae520fd831605fe9a3a981cbeba"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/enstow/releases/download/v0.1.4/enstow-0.1.4-x86_64-apple-darwin.tar.gz"
-      sha256 "f6f27aac7bdb8eebb51019aaf4fe0b8f68ff01e2db3ff6574683922f6ca78c0f"
+      url "https://github.com/nicholaswilde/enstow/releases/download/v0.1.5/enstow-0.1.5-x86_64-apple-darwin.tar.gz"
+      sha256 "34ec541c75a88c0149e8854deb252e6cc44400d4e8deebb18c233da7e7756237"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/enstow/releases/download/v0.1.4/enstow-0.1.4-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "ea1d4de7cf51e5657e56cb076b93ae5e5ea88701839a7773423e670d283d4f14"
+      url "https://github.com/nicholaswilde/enstow/releases/download/v0.1.5/enstow-0.1.5-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "8f6ff375d186dacbba5446f0a6d72defee00c7d63225a09d20a67eb7817b3586"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/enstow/releases/download/v0.1.4/enstow-0.1.4-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "732c44642bd268387e2d9a3257df2bf37214a6578fb05bce5f223aef57aea18a"
+      url "https://github.com/nicholaswilde/enstow/releases/download/v0.1.5/enstow-0.1.5-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "133cf4e64d246439d0e0a23ed7793a960fdf2efb757a4094f4dd1d4574333f4f"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
       if Utils.safe_popen_read("uname", "-m").include?("armv6")
-        url "https://github.com/nicholaswilde/enstow/releases/download/v0.1.4/enstow-0.1.4-arm-unknown-linux-gnueabihf.tar.gz"
-        sha256 "6ed725bcb43e65d1aac650ba7caecf2c7fb46c7a16f6479cfaf2b934116e4549"
+        url "https://github.com/nicholaswilde/enstow/releases/download/v0.1.5/enstow-0.1.5-arm-unknown-linux-gnueabihf.tar.gz"
+        sha256 "ef2acd12b40c6fcabb14686f8da1be36b8fdc3f74aa51cf159d2a929006ea0e6"
       else
-        url "https://github.com/nicholaswilde/enstow/releases/download/v0.1.4/enstow-0.1.4-armv7-unknown-linux-musleabihf.tar.gz"
-        sha256 "7f6ce5bd098a3f31d16b722f40bf4404c9e8ac23d77564356615d28a2e421423"
+        url "https://github.com/nicholaswilde/enstow/releases/download/v0.1.5/enstow-0.1.5-armv7-unknown-linux-musleabihf.tar.gz"
+        sha256 "318c8e7c67cec484757a3ace61c3fe7c8b5ea2aab404fb7c3515e9b22d668569"
       end
     end
   end
