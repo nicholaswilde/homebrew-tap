@@ -1,0 +1,109 @@
+name: Update Formula
+
+on:
+  repository_dispatch:
+    types: [update-formula]
+  workflow_dispatch:
+    inputs:
+      formula:
+        description: 'Formula name to update (e.g. tfa)'
+        required: true
+        type: string
+      version:
+        description: 'Version override (leave blank for latest release)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-formula
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Update formula
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
+          FORMULA_RAW: ${{ github.event.client_payload.formula || inputs.formula }}
+          VERSION_RAW: ${{ github.event.client_payload.version || inputs.version }}
+        run: |
+          set -euo pipefail
+
+          FORMULA="${FORMULA_RAW%.rb}"
+          if [ -z "${FORMULA}" ]; then
+            echo "Error: formula parameter is required"
+            exit 1
+          fi
+
+          CMD_ARGS=("${FORMULA}")
+          if [ -n "${VERSION_RAW}" ]; then
+            VERSION="${VERSION_RAW#v}"
+            CMD_ARGS+=("--version-override" "${VERSION}")
+          fi
+
+          echo "Running updater for formula: ${FORMULA}"
+          uv run python3 scripts/update_formula.py "${CMD_ARGS[@]}"
+
+      - name: Audit formula
+        env:
+          FORMULA_RAW: ${{ github.event.client_payload.formula || inputs.formula }}
+        run: |
+          set -euo pipefail
+          FORMULA="${FORMULA_RAW%.rb}"
+          TARGET_FILE="Formula/${FORMULA}.rb"
+
+          if git diff --quiet "${TARGET_FILE}"; then
+            echo "Formula/${FORMULA}.rb has no changes. Skipping audit."
+            exit 0
+          fi
+
+          if ! brew tap | grep -q "^local/tap$"; then
+            brew tap local/tap .
+          fi
+          brew audit "local/tap/${FORMULA}"
+
+      - name: Commit and push changes
+        env:
+          FORMULA_RAW: ${{ github.event.client_payload.formula || inputs.formula }}
+          VERSION_RAW: ${{ github.event.client_payload.version || inputs.version }}
+        run: |
+          set -euo pipefail
+          FORMULA="${FORMULA_RAW%.rb}"
+          TARGET_FILE="Formula/${FORMULA}.rb"
+
+          if git diff --quiet "${TARGET_FILE}"; then
+            echo "Formula/${FORMULA}.rb is already up to date. Nothing to commit."
+            exit 0
+          fi
+
+          VERSION="${VERSION_RAW#v}"
+          if [ -z "${VERSION}" ]; then
+            VERSION=$(grep -oE 'releases/download/v?[0-9]+\.[0-9]+(\.[0-9]+)?' "${TARGET_FILE}" \
+              | head -n 1 \
+              | sed -E 's|releases/download/v?||')
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "${TARGET_FILE}"
+          git commit -m "chore(formula): bump ${FORMULA} to ${VERSION}"
+          git pull --rebase origin main
+          git push origin main
