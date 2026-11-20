@@ -28,7 +28,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
       - name: Set up uv
@@ -41,7 +41,7 @@ jobs:
 
       - name: Update formula
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FORMULA_RAW: ${{ github.event.client_payload.formula || inputs.formula }}
           VERSION_RAW: ${{ github.event.client_payload.version || inputs.version }}
         run: |
