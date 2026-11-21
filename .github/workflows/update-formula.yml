@@ -78,6 +78,7 @@ jobs:
           if ! brew tap | grep -q "^local/tap$"; then
             brew tap local/tap .
           fi
+          brew trust local/tap
           brew audit "local/tap/${FORMULA}"
 
       - name: Commit and push changes

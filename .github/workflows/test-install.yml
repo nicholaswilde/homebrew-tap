@@ -23,6 +23,7 @@ jobs:
         run: |
           # Tap the local directory with a unique name to avoid remote mismatch
           brew tap test/tap .
+          brew trust test/tap
           
           for formula_path in Formula/*.rb; do
             # Get formula name from path (e.g., Formula/name.rb -> name)
