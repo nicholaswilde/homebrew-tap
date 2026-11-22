@@ -25,6 +25,10 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
@@ -35,9 +39,6 @@ jobs:
         uses: astral-sh/setup-uv@v5
         with:
           enable-cache: true
-
-      - name: Set up Homebrew
-        uses: Homebrew/actions/setup-homebrew@main
 
       - name: Update formula
         env:
@@ -60,11 +61,12 @@ jobs:
           fi
 
           echo "Running updater for formula: ${FORMULA}"
-          uv run python3 scripts/update_formula.py "${CMD_ARGS[@]}"
+          uv run --frozen python3 scripts/update_formula.py "${CMD_ARGS[@]}"
 
       - name: Audit formula
         env:
           FORMULA_RAW: ${{ github.event.client_payload.formula || inputs.formula }}
+          TAP_NAME: ${{ steps.set-up-homebrew.outputs.tap-name }}
         run: |
           set -euo pipefail
           FORMULA="${FORMULA_RAW%.rb}"
@@ -75,11 +77,7 @@ jobs:
             exit 0
           fi
 
-          if ! brew tap | grep -q "^local/tap$"; then
-            brew tap local/tap .
-          fi
-          brew trust local/tap
-          brew audit "local/tap/${FORMULA}"
+          brew audit "${TAP_NAME}/${FORMULA}"
 
       - name: Commit and push changes
         env:
