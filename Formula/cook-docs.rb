@@ -9,27 +9,27 @@ class CookDocs < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.9.2/cook-docs_0.9.2_Darwin_arm64.tar.gz"
-      sha256 "733eb3305b8e80ddff07ec7755ba4d13a8fdb066325ba1c2c5289fd47756daef"
+      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.9.6/cook-docs_0.9.6_Darwin_arm64.tar.gz"
+      sha256 "c88d9957c6d4fcdcbf05d535dc229838a99349d5db95d03bc6e78bf7412f1aa2"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.9.2/cook-docs_0.9.2_Darwin_x86_64.tar.gz"
-      sha256 "3fec3044829c15d8eb80645e1a5f92454e3c98602924cf6d81509897368de861"
+      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.9.6/cook-docs_0.9.6_Darwin_x86_64.tar.gz"
+      sha256 "f93999962001f689b141401ea15f3cbe097957e923504b09b6b17188fb192974"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.9.2/cook-docs_0.9.2_Linux_arm64.tar.gz"
-      sha256 "e572590c311a5ffa2d18ee28da27ed8df0e2ed2d9ee2613630c3228d8d7a483f"
+      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.9.6/cook-docs_0.9.6_Linux_arm64.tar.gz"
+      sha256 "2bdb0915f66a681a7fe5a4269ae355aaceec3433139c1b73e264b4cc40c84613"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.9.2/cook-docs_0.9.2_Linux_x86_64.tar.gz"
-      sha256 "84188db009b92c3b925325f0e8f3c2465320b960a473882c16fd07ddc6025773"
+      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.9.6/cook-docs_0.9.6_Linux_x86_64.tar.gz"
+      sha256 "4fdbb13ac608d0ce7fc4cb6692f37aaa18c4eb5eb2f7f664bf851d379da0e209"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.9.2/cook-docs_0.9.2_Linux_armv6.tar.gz"
-      sha256 "852c0d0af543ef7ee25fa161bea5e8eca19fedc8e0e8a83ff76f21196011490c"
+      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.9.6/cook-docs_0.9.6_Linux_armv6.tar.gz"
+      sha256 "26a3aa90c51eef19225c21185d85328f5cb2bdaa1433b8ff8ddd1f339302cce8"
     end
   end
 
