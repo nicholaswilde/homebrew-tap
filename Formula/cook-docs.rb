@@ -28,8 +28,13 @@ class CookDocs < Formula
       sha256 "4fdbb13ac608d0ce7fc4cb6692f37aaa18c4eb5eb2f7f664bf851d379da0e209"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.9.6/cook-docs_0.9.6_Linux_armv6.tar.gz"
-      sha256 "26a3aa90c51eef19225c21185d85328f5cb2bdaa1433b8ff8ddd1f339302cce8"
+      if Utils.safe_popen_read("uname", "-m").include?("armv6")
+        url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.9.6/cook-docs_0.9.6_Linux_armv6.tar.gz"
+        sha256 "26a3aa90c51eef19225c21185d85328f5cb2bdaa1433b8ff8ddd1f339302cce8"
+      else
+        url "https://github.com/nicholaswilde/cook-docs/releases/download/v0.9.6/cook-docs_0.9.6_Linux_armv7.tar.gz"
+        sha256 "803c6e745547aa2cffc52096c33279728798cda1ceb34480ebaf77839162ed5f"
+      end
     end
   end
 
