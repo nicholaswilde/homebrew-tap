@@ -4,6 +4,8 @@ import argparse
 import re
 import json
 import hashlib
+import time
+from urllib.error import HTTPError
 from urllib.request import urlopen, Request
 from find_formula import find_formula
 from github_utils import get_github_token, create_github_request
@@ -15,26 +17,37 @@ def extract_github_repo(content):
         return f"{match.group(1)}/{match.group(2)}"
     return None
 
-def get_latest_release(repo, version=None, token=None):
+def get_latest_release(repo, version=None, token=None, retries=3, retry_delay=5):
     if version:
         tag = version if version.startswith("v") else f"v{version}"
-        url = f"https://api.github.com/repos/{repo}/releases/tags/{tag}"
+        urls = [f"https://api.github.com/repos/{repo}/releases/tags/{tag}"]
+        if not version.startswith("v"):
+            urls.append(f"https://api.github.com/repos/{repo}/releases/tags/{version}")
     else:
-        url = f"https://api.github.com/repos/{repo}/releases/latest"
-    req = create_github_request(url, token=token)
-    
-    try:
-        with urlopen(req) as response:
-            data = json.loads(response.read().decode())
-            return data['tag_name'].lstrip('v'), data['assets']
-    except Exception:
-        if version and not version.startswith("v"):
-            url = f"https://api.github.com/repos/{repo}/releases/tags/{version}"
+        urls = [f"https://api.github.com/repos/{repo}/releases/latest"]
+
+    last_error = None
+    for attempt in range(retries + 1):
+        for url in urls:
             req = create_github_request(url, token=token)
-            with urlopen(req) as response:
-                data = json.loads(response.read().decode())
-                return data['tag_name'].lstrip('v'), data['assets']
-        raise
+            try:
+                with urlopen(req) as response:
+                    data = json.loads(response.read().decode())
+                    return data['tag_name'].lstrip('v'), data['assets']
+            except HTTPError as e:
+                if e.code == 404:
+                    last_error = e
+                    continue
+                raise
+        if attempt < retries:
+            print(f"Release not found yet (404), retrying in {retry_delay}s ({attempt + 1}/{retries})...")
+            time.sleep(retry_delay)
+
+    target = version or "latest"
+    raise RuntimeError(
+        f"Release '{target}' not found for {repo} (HTTP 404). "
+        "Ensure the GitHub release is published (draft releases return 404)."
+    ) from last_error
 
 def calculate_sha256(url):
     sha256_hash = hashlib.sha256()
