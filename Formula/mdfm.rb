@@ -8,31 +8,31 @@ class Mdfm < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/mdfm/releases/download/v0.1.0/mdfm-0.1.0-aarch64-apple-darwin.tar.gz"
-      sha256 "4c7bc4aae6beef47239209a1aca0cc04cb7b2ec7a212615336c8a4cc0a7989cc"
+      url "https://github.com/nicholaswilde/mdfm/releases/download/v0.1.1/mdfm-0.1.1-aarch64-apple-darwin.tar.gz"
+      sha256 "9c4ba9c0d84871684fea4200a560dfa1355052294d8edb035de4a7e0d6b98bb8"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/mdfm/releases/download/v0.1.0/mdfm-0.1.0-x86_64-apple-darwin.tar.gz"
-      sha256 "e44745b7aed756566b2f317d1b07d48117762dd932013c40c614de9472891fb1"
+      url "https://github.com/nicholaswilde/mdfm/releases/download/v0.1.1/mdfm-0.1.1-x86_64-apple-darwin.tar.gz"
+      sha256 "e0ff4c1a95872032183bc4dabc10ca1ffed58e28dde4f63ada61549a4fada26f"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/mdfm/releases/download/v0.1.0/mdfm-0.1.0-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "f19cc97ad243d33c925e6527908db072ac9b979b949b6c584c63d98d7c956ff5"
+      url "https://github.com/nicholaswilde/mdfm/releases/download/v0.1.1/mdfm-0.1.1-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "9f0b94b2f211cb0c390c14c8b027e08e06a86aea0a2fa360d4ac5c4d6a10bce0"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/mdfm/releases/download/v0.1.0/mdfm-0.1.0-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "ba0ffad478253416346edb43798f5656a7acbe1e8cd0e3f7dfffc583c789cfd0"
+      url "https://github.com/nicholaswilde/mdfm/releases/download/v0.1.1/mdfm-0.1.1-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "33d24b302d24b655f815fe14e6d3a2b910c990e23bf8d023f06f8f465f708feb"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
       if Utils.safe_popen_read("uname", "-m").include?("armv6")
-        url "https://github.com/nicholaswilde/mdfm/releases/download/v0.1.0/mdfm-0.1.0-arm-unknown-linux-musleabi.tar.gz"
-        sha256 "b9ef93073e6d2ad059334fea7bc65f55a3f3cee57d2a8864ed08335cecd5453b"
+        url "https://github.com/nicholaswilde/mdfm/releases/download/v0.1.1/mdfm-0.1.1-arm-unknown-linux-musleabi.tar.gz"
+        sha256 "c3fbddc1b6d61e37f2b994242229e56eca90edf10bf2946a6a140b0662a97376"
       else
-        url "https://github.com/nicholaswilde/mdfm/releases/download/v0.1.0/mdfm-0.1.0-armv7-unknown-linux-musleabihf.tar.gz"
-        sha256 "994f7ea58936645921e5b9f3d3d681df3b9a5077b00369d3d379764bb14e8ca6"
+        url "https://github.com/nicholaswilde/mdfm/releases/download/v0.1.1/mdfm-0.1.1-armv7-unknown-linux-musleabihf.tar.gz"
+        sha256 "3af24c9d6f2dfa8203a6722faa53578169132cf56312787eb79c2de91ccb94d3"
       end
     end
   end
