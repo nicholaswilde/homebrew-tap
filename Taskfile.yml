@@ -27,6 +27,7 @@ tasks:
       - task: audit:cook-docs
       - task: audit:enstow
       - task: audit:gatus-mcp-rs
+      - task: audit:mdfm
       - task: audit:proxmox-mcp-rs
       - task: audit:qbittorrent-mcp-rs
       - task: audit:recipes-mcp-rs
@@ -65,6 +66,11 @@ tasks:
     desc: Audit gatus-mcp-rs formula
     cmds:
       - brew audit nicholaswilde/tap/gatus-mcp-rs
+
+  audit:mdfm:
+    desc: Audit mdfm formula
+    cmds:
+      - brew audit nicholaswilde/tap/mdfm
 
   audit:proxmox-mcp-rs:
     desc: Audit proxmox-mcp-rs formula

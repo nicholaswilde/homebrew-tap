@@ -32,6 +32,7 @@ brew install <formula>
 - `cook-docs`: A tool for automatically generating markdown documentation for cooklang recipes.
 - `enstow`: 📦 Secret-aware dotfile manager combining stow symlinking with sops and age decryption in Rust 🦀
 - `gatus-mcp-rs`: 🦀 A Rust implementation of a Gatus MCP server 🤖
+- `mdfm`: 📄 jq for Markdown frontmatter: query, mutate, delete, and validate YAML and TOML frontmatter without modifying the Markdown body 🔧
 - `proxmox-mcp-rs`: 🦀 A rust implementation of a proxmox MCP server. 🤖
 - `qbittorrent-mcp-rs`: 🧲 A qBittorrent MCP server written in Rust 🤖
 - `recipes-mcp-rs`: 🍳 An MCP server that imports recipes 🤖
