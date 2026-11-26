@@ -8,31 +8,31 @@ class Hbx < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/hbx/releases/download/v0.1.0/hbx-0.1.0-aarch64-apple-darwin.tar.gz"
-      sha256 "da60d24e0449570ed2026e8dc71425d1e1b2eaa620683e800d1c389f4f4df8a2"
+      url "https://github.com/nicholaswilde/hbx/releases/download/v0.1.1/hbx-0.1.1-aarch64-apple-darwin.tar.gz"
+      sha256 "c37d72fbca0f13a5dcb49094e52a46ef84a8aa104952e7b463018347c256e470"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/hbx/releases/download/v0.1.0/hbx-0.1.0-x86_64-apple-darwin.tar.gz"
-      sha256 "43dc17e7f7329f350797c17211ae52f373e2d5ecd76ce2176a421262f586b98f"
+      url "https://github.com/nicholaswilde/hbx/releases/download/v0.1.1/hbx-0.1.1-x86_64-apple-darwin.tar.gz"
+      sha256 "d6c0021926ad98c8defa4ed1901ac69df91314ffdfffaa68b6357ab4108094c8"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/hbx/releases/download/v0.1.0/hbx-0.1.0-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "315928d86c503aa95029ced9affe31e6b429eeac00d74f50827fb5ed93f37c2e"
+      url "https://github.com/nicholaswilde/hbx/releases/download/v0.1.1/hbx-0.1.1-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "74332c53a8d136cc1c06be729f9629aebbb85b1dd476cb68eb4a036f66b18808"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/hbx/releases/download/v0.1.0/hbx-0.1.0-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "acefefdc253029e1c56d6babba0d8cca4fc96d0ecbe0ccb72f17dfb6e9e23312"
+      url "https://github.com/nicholaswilde/hbx/releases/download/v0.1.1/hbx-0.1.1-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "2643629bb1cfc5a885c969d08abcde8f79c5ee33d5f65d32ff3783372fb6e9ca"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
       if Utils.safe_popen_read("uname", "-m").include?("armv6")
-        url "https://github.com/nicholaswilde/hbx/releases/download/v0.1.0/hbx-0.1.0-arm-unknown-linux-musleabi.tar.gz"
-        sha256 "30c97205f0149070f8883909a6b6574b56f04a3057067b3ba5561b30aacef00d"
+        url "https://github.com/nicholaswilde/hbx/releases/download/v0.1.1/hbx-0.1.1-arm-unknown-linux-musleabi.tar.gz"
+        sha256 "5fde5e8cfd010634f6c529d0ffa825bbe4b7d20278e16c52ee1421a439e3dc2e"
       else
-        url "https://github.com/nicholaswilde/hbx/releases/download/v0.1.0/hbx-0.1.0-armv7-unknown-linux-musleabihf.tar.gz"
-        sha256 "efaa851ec74ea693285dc82af5e545b15382263d6cab4c1157ddc4fe82baf9ff"
+        url "https://github.com/nicholaswilde/hbx/releases/download/v0.1.1/hbx-0.1.1-armv7-unknown-linux-musleabihf.tar.gz"
+        sha256 "d3c356398c29b9e5cc954fd9cd99ea36a2591de221010675fe1eb472426ec07d"
       end
     end
   end
