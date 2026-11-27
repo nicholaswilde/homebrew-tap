@@ -8,31 +8,31 @@ class Hbctl < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nicholaswilde/hbctl/releases/download/v0.1.5/hbctl-0.1.5-aarch64-apple-darwin.tar.gz"
-      sha256 "d43cb69fbdd97ff15104497ad2293d7f90769c9099da66f32407a6f2271c9f22"
+      url "https://github.com/nicholaswilde/hbctl/releases/download/v0.1.6/hbctl-0.1.6-aarch64-apple-darwin.tar.gz"
+      sha256 "548eda4c8c23f58fd39918c574f885a32624e3eb1e15a7751cf82dc3a894aef6"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/hbctl/releases/download/v0.1.5/hbctl-0.1.5-x86_64-apple-darwin.tar.gz"
-      sha256 "0fe9e1de51bbb43809de6a1623c27f204bb3e37365a4a72ed82b7522957f919c"
+      url "https://github.com/nicholaswilde/hbctl/releases/download/v0.1.6/hbctl-0.1.6-x86_64-apple-darwin.tar.gz"
+      sha256 "5b99bdff20009001d761769f5190d24d96f895abac7a1e519899231563b779c8"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nicholaswilde/hbctl/releases/download/v0.1.5/hbctl-0.1.5-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "fa25ea15240bdcaa459993dd3dfe9049d02ea2a0a6bbde8f59227cc9edac4222"
+      url "https://github.com/nicholaswilde/hbctl/releases/download/v0.1.6/hbctl-0.1.6-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "fca61e156b6af46a157a6d2e01f0c86295cbfdafc672b057cf56af151b1d3279"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nicholaswilde/hbctl/releases/download/v0.1.5/hbctl-0.1.5-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "f381db01ef95f781cbe642768a231050c387cc277b0c7add9ff3ff535809f6de"
+      url "https://github.com/nicholaswilde/hbctl/releases/download/v0.1.6/hbctl-0.1.6-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "f615a02476c7a82f0c0fb2ac4a576dabd4560706c3775c581ccfa0a01a1c8f73"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
       if Utils.safe_popen_read("uname", "-m").include?("armv6")
-        url "https://github.com/nicholaswilde/hbctl/releases/download/v0.1.5/hbctl-0.1.5-arm-unknown-linux-musleabi.tar.gz"
-        sha256 "b0acc809259a57012142bf754937f04ee0467f4e8a19e9057517cf5f7a81b9d7"
+        url "https://github.com/nicholaswilde/hbctl/releases/download/v0.1.6/hbctl-0.1.6-arm-unknown-linux-musleabi.tar.gz"
+        sha256 "c0a1f21a6313d1c08d9c75b8cbfe301f7eb1f5d38ea711010b6f9e9d4a3fcffb"
       else
-        url "https://github.com/nicholaswilde/hbctl/releases/download/v0.1.5/hbctl-0.1.5-armv7-unknown-linux-musleabihf.tar.gz"
-        sha256 "72e57d15408e5767c067a3c014d9bde506d1a95d16c8d60c15d13b01ecb3c864"
+        url "https://github.com/nicholaswilde/hbctl/releases/download/v0.1.6/hbctl-0.1.6-armv7-unknown-linux-musleabihf.tar.gz"
+        sha256 "b3035a1841153f5bb58724257dd621a9af43ae18633c44e27fd59cf7f9a944cf"
       end
     end
   end
